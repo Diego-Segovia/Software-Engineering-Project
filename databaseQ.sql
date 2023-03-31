@@ -1,3 +1,4 @@
+
 -- SQL queries for creating necessary tables in PostgreSQL.
 
 CREATE TABLE Author (
