@@ -23,11 +23,12 @@ CREATE TABLE Publisher (
 -- Book
 CREATE TABLE Book (
   bookID SERIAL PRIMARY KEY,
+  ISBN VARCHAR(20),
   bookTitle VARCHAR(255) NOT NULL,
-  bookImage VARCHAR(255) NOT NULL,
   publisherID INTEGER REFERENCES Publisher(publisherID),
   genreID INTEGER REFERENCES Genre(genreID),
-  numCopies INTEGER NOT NULL
+  numCopies INTEGER NOT NULL,
+  bookImage VARCHAR(255) NOT NULL
 );
 
 -- Author_Book Normalization
@@ -43,20 +44,26 @@ CREATE TABLE Users (
   firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
   userImage VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  authUsername VARCHAR(255) NOT NULL,
+  authPassword VARCHAR(255) NOT NULL
 );
 
--- Status
-CREATE TABLE Status (
+-- Loan Status
+CREATE TABLE Loan_Status (
   statusID SERIAL PRIMARY KEY,
   statusDesc VARCHAR(255) NOT NULL
+);
+
+-- Patron Membership Status
+CREATE TABLE Membership (
+  membershipID INT PRIMARY KEY,
+  description VARCHAR(255) NOT NULL
 );
 
 -- Library Patron Subtype
 CREATE TABLE Library_Patron (
   patronID INTEGER PRIMARY KEY REFERENCES Users(UserID),
-  statusID INTEGER REFERENCES Status(statusID)
+  membershipID INTEGER REFERENCES Membership(membershipID)
 );
 
 -- Librarian SUbtype
@@ -79,5 +86,6 @@ CREATE TABLE Loan (
   fineID INTEGER REFERENCES Fine(fineID),
   librarianID INTEGER REFERENCES Librarian(librarianID),
   loanDate DATE NOT NULL,
-  returnDate DATE NOT NULL
+  returnDate DATE NOT NULL,
+  statusID INTEGER REFERENCES Loan_Status(statusID)
 );
