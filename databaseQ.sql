@@ -24,6 +24,7 @@ CREATE TABLE Publisher (
 CREATE TABLE Book (
   bookID SERIAL PRIMARY KEY,
   bookTitle VARCHAR(255) NOT NULL,
+  bookImage VARCHAR(255) NOT NULL,
   publisherID INTEGER REFERENCES Publisher(publisherID),
   genreID INTEGER REFERENCES Genre(genreID),
   numCopies INTEGER NOT NULL
@@ -41,6 +42,7 @@ CREATE TABLE Users (
   UserID SERIAL PRIMARY KEY,
   firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
+  userImage VARCHAR(255) NOT NULL,
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL
 );
