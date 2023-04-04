@@ -1,0 +1,16 @@
+.HeadTextComponent{
+    font-size: 32px;
+    color: white;
+    background-color: #02183A;
+   
+}
+
+.SmallCarouselText{
+    font-size: 28px;
+    color: white;
+    background-color: #02183A;
+    text-align: left;
+    padding-left: 7.5%;
+    padding-bottom: 25px;
+    
+}
