@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat, sans-serif;
+  }
+  
+  input, button{
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  }
+ 
+  .LoginComponent{
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #02183A;
+  }
+  /*
+  form{
+    display: block;
+    position: relative;
+  } 
+  */
+  
+  
+  form .form-inner{
+    background-color: #2B9EA6;
+   /* position: relative; */
+   font-family:Arial, Helvetica, sans-serif;
+    display: block;
+    border-radius: 25px; 
+    grid-gap:5px;
+    padding: 30px;
+    padding-bottom: 10px;
+   
+  /*  padding-right: 200px; */
+    margin-top: 100px;
+    z-index: 2;
+    
+  }
+  
+  
+  
+  form .form-inner h2{
+    color: rgb(8, 8, 8);
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  
+  form .form-inner .form-group {
+    
+    display:flex;
+    width: 600px;
+    margin-bottom: 15px;
+    text-align: left;
+    
+  
+  }
+  
+  form .form-inner .form-group label{
+   
+    color: rgb(247, 247, 247);
+    font-size: 32px;
+    margin-bottom: 5px;
+    transition: 0.4s;
+    margin-right: 15%;
+   
+    
+  }
+   #password{
+   
+    
+    margin-left: 2px;
+   
+    
+  }
+  
+  form .form-inner .form-group input{
+    border-radius: 10px; 
+    color: rgb(0, 0, 0);
+    background-color: aliceblue;
+    display: inline;
+    width: 60%;
+    margin-left: 10%;
+    font-size: 32px;
+   
+    
+   
+   
+    
+  }
+  
+  input[type=submit]{
+    margin-top: 50px;
+    margin-right: 10px;
+  }
+  
+  
+   input[type=submit] , button, .bottomButton{
+   display:inline-block;
+    padding:10px 1px; 
+    background:#c9c7c7; 
+    
+    width: 100px;
+    border:0 none;
+    cursor:poinrgb(173, 29, 29);
+    
+    border-radius: 5px; 
+    margin-left: 50px;
+  }
+  
+  .bottomButton{
+    margin-left: 120px;
+  }
+  
+  
