@@ -1,0 +1,22 @@
+.bg-blue {
+  background-color: #2b9ea6;
+  color: #ffffff;
+}
+
+.navbar-custom {
+  color: #ffffff !important;
+}
+
+.nav-link {
+  font-family: "Roboto", sans-serif;
+  color: #ffffff !important;
+}
+
+.nav-scroll {
+  margin-bottom: 56px;
+}
+
+a {
+  font-family: "Roboto", sans-serif;
+  color: #ffffff !important;
+}
