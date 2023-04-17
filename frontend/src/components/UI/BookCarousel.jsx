@@ -23,7 +23,7 @@ export default class BookCarousel extends Component {
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
       speed: 500,
-      slidesToShow: 7,
+      slidesToShow: 5,
       slidesToScroll: 1,
       infinite: false,
       responsive: [
