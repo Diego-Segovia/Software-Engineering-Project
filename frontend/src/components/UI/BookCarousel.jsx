@@ -16,20 +16,23 @@ const PrevArrow = (props) => {
 
 export default class BookCarousel extends Component {
   render() {
+    const books = this.props.bookData;
+
     const settings = {
       dots: true,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: 7,
       slidesToScroll: 1,
+      infinite: false,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
-            infinite: true,
+            infinite: false,
             dots: true,
           },
         },
@@ -50,38 +53,17 @@ export default class BookCarousel extends Component {
         },
       ],
     };
+
     return (
       <div className="ms-5 me-5 p-3">
         <h3>Featured</h3>
         <hr />
         <Slider {...settings}>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
-          <div>
-            <Book />
-          </div>
+          {books.map((book) => (
+            <div>
+              <Book bookInfo={book} />
+            </div>
+          ))}
         </Slider>
       </div>
     );
