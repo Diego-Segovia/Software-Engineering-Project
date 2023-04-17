@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/UI/Navbar";
 import BookSection from "./components/UI/BookSection";
 import DetailedBook from "./components/UI/DetailedBook";
+import Jumbotron from "./components/UI/Jumbotron";
 
 const bookData = [
   {
@@ -81,6 +82,7 @@ function App() {
   return (
     <>
       <NavBar />
+      <Jumbotron />
       <BookSection bookData={bookData} />
       <DetailedBook />
     </>
