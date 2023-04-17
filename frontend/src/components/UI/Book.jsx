@@ -1,15 +1,16 @@
-import Card from "react-bootstrap/Card";
-
-function BasicExample() {
+function Book(props) {
+  const book = props.bookInfo;
   return (
-    <Card style={{ width: "14rem" }} className="m-1 p-0">
-      <Card.Img
-        className="rounded"
-        variant="top"
-        src="https://m.media-amazon.com/images/P/0393609391.01._SCLZZZZZZZ_SX500_.jpg"
-      />
-    </Card>
+    <>
+      <div className="card" style={{ width: "14rem", height: "22rem" }}>
+        <img
+          className="card-img-top rounded h-100"
+          src={book.coverImg}
+          alt="Card image cap"
+        ></img>
+      </div>
+    </>
   );
 }
 
-export default BasicExample;
+export default Book;
