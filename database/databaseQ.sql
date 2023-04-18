@@ -28,6 +28,7 @@ CREATE TABLE Book (
   publisherID INTEGER REFERENCES Publisher(publisherID),
   genreID INTEGER REFERENCES Genre(genreID),
   numCopies INTEGER NOT NULL,
+  synopsis  VARCHAR(255) NOT NULL,
   bookImage VARCHAR(255) NOT NULL
 );
 
@@ -68,7 +69,8 @@ CREATE TABLE Library_Patron (
 
 -- Librarian SUbtype
 CREATE TABLE Librarian (
-  librarianID INTEGER PRIMARY KEY REFERENCES Users(UserID)
+  librarianID INTEGER PRIMARY KEY REFERENCES Users(UserID),
+  staffID VARCHAR(255) NOT NULL,
 );
 
 -- Fine
