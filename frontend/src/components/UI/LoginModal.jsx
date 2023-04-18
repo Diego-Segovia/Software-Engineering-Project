@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const LoginModal = () => {
   const [show, setShow] = useState(false);
@@ -9,13 +10,13 @@ const LoginModal = () => {
 
   return (
     <>
-      <a
+      <Link
         className="me-1"
         style={{ color: "white", textDecoration: "none" }}
         onClick={handleShow}
       >
         Login
-      </a>
+      </Link>
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
