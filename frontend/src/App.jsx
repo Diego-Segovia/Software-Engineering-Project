@@ -3,6 +3,7 @@ import NavBar from "./components/UI/Navbar";
 import BookSection from "./components/UI/BookSection";
 import DetailedBook from "./components/UI/DetailedBook";
 import Jumbotron from "./components/UI/Jumbotron";
+import SearchBar from "./components/UI/SearchBar";
 
 const bookData = [
   {
@@ -83,6 +84,7 @@ function App() {
     <>
       <NavBar />
       <Jumbotron />
+      <SearchBar />
       <BookSection bookData={bookData} />
       <DetailedBook />
     </>
