@@ -9,3 +9,9 @@ const sequelize = new Sequelize({
   port: process.env.POSTGRES_PORT,
   dialect: "postgres",
 });
+
+const models = [require("./AuthorBook"), require("./Book")];
+
+for (const model of models) model(sequelize, DataTypes);
+
+module.exports = sequelize;
