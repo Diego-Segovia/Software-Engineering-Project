@@ -36,6 +36,14 @@ const NavBar = () => {
             </Link>
           </Nav.Link>
           <Nav.Link>
+            <Link
+              to="/userPatronProfile"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Profile
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
             <LoginModal />
           </Nav.Link>
         </Nav>

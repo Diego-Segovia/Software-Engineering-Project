@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "frontend/src/components/UI/Navbar.jsx"; 
+
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import BookSection from "frontend/src/components/UI/BookSection.jsx"
+import BookSection from "../components/UI/BookSection";
+
 
 
 
@@ -86,7 +87,7 @@ function UserPatronPage(){
     return(
         
         <>
-      <NavBar />
+     
      
       <Container fluid>
         <Row variant="dark" className="  dark" style={{ border: '25px solid tan' , position: 'relative'}}>

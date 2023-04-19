@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SearchCatalogPage from "./pages/SearchCatalogPage";
 import HomePage from "./pages/Homepage";
 import RootLayout from "./pages/Root";
+import UserPatronPage from "./pages/UserPatronPage";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/searchCatalog", element: <SearchCatalogPage /> },
+      { path: "/userPatronProfile", element: <UserPatronPage /> },
     ],
   },
 ]);
