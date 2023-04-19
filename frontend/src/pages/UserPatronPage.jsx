@@ -1,11 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./components/UI/Navbar";
+import NavBar from "frontend/src/components/UI/Navbar.jsx"; 
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import BookSection from "./components/UI/BookSection";
-import DetailedBook from "./components/UI/DetailedBook";
-import Jumbotron from "./components/UI/Jumbotron";
+import BookSection from "frontend/src/components/UI/BookSection.jsx"
+
 
 
 
