@@ -1,12 +1,12 @@
 function DetailedBook() {
   return (
     <>
-      <div className="card mb-3" style={{ maxWidth: "700px" }}>
+      <div className="card mb-3" style={{ maxWidth: "900px" }}>
         <div className="row g-0">
           <div className="col-md-4">
             <img
               src="https://m.media-amazon.com/images/I/41i6RKW1IXL._SX314_BO1,204,203,200_.jpg"
-              className="img-fluid rounded-start h-100"
+              className="img-fluid h-75 mx-5 mt-3 rounded-3"
               alt="..."
             ></img>
           </div>
