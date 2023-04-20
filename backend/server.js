@@ -8,7 +8,7 @@ const app = express();
 app.use(booksRoutes);
 
 const startServer = async () => {
-  await db.sync();
+  await db.sequelize.sync();
   app.listen(3005, function () {
     console.log("Server started on port: 3005");
   });
