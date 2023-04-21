@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { getDbBooks } = require("../actions");
+const { getBooks } = require("../actions");
 
 router.use("/books", (req, res, next) => {
-  getDbBooks(req, res);
+  getBooks(req, res);
 });
 
 module.exports = router;

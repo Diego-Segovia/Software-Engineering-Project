@@ -10,8 +10,17 @@ const sequelize = new Sequelize({
   dialect: "postgres",
 });
 
-const models = [require("./AuthorBook"), require("./Book")];
+//const AuthorBook = require("./AuthorBook")(sequelize, DataTypes);
+const Book = require("./Book")(sequelize, DataTypes);
+const Author = require("./Author")(sequelize, DataTypes);
 
-for (const model of models) model(sequelize, DataTypes);
+Book.belongsToMany(Author, { through: "author_book", foreignKey: "bookid" });
+Author.belongsToMany(Book, { through: "author_book", foreignKey: "authorid" });
 
-module.exports = sequelize;
+const db = {
+  sequelize,
+  Author,
+  Book,
+};
+
+module.exports = db;
