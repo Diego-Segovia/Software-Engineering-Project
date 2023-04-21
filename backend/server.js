@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+
 const db = require("./models");
 
 const booksRoutes = require("./routes/books-routes");
 const app = express();
 
+app.use(cors());
 app.use(booksRoutes);
 
 const startServer = async () => {
