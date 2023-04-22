@@ -4,15 +4,15 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function SearchBar() {
   return (
     <>
-      <div className="container w-50">
-        <div className="input-group mb-3 mt-3">
+      <div className="container">
+        <div className="input-group mb-3 mt-3 mx-auto w-50">
           <input
             type="text"
             className="form-control"
             placeholder="Start Searching..."
           />
-          <button className="btn btn-primary" style={{ width: "4rem" }}>
-            <FontAwesomeIcon icon={faSearch} />
+          <button className="btn btn-primary">
+            <FontAwesomeIcon className="mx-auto" icon={faSearch} />
           </button>
         </div>
       </div>

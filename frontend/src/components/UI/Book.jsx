@@ -5,7 +5,7 @@ function Book(props) {
       <div className="card" style={{ width: "14rem", height: "22rem" }}>
         <img
           className="card-img-top rounded h-100"
-          src={book.coverImg}
+          src={book.bookimage}
           alt="Card image cap"
         ></img>
       </div>
