@@ -5,11 +5,15 @@ import { fetchBookById } from "../utils/utils";
 function DetailBookPage() {
   const params = useParams();
 
-  const [book, setBook] = useState({});
+  const [book, setBook] = useState();
 
   useEffect(() => {
     fetchBookById(setBook, params.bookId);
   }, []);
+
+  if (!book) {
+    return <div></div>;
+  }
 
   return (
     <div className="container m-5">
@@ -37,4 +41,5 @@ function DetailBookPage() {
     </div>
   );
 }
+
 export default DetailBookPage;
