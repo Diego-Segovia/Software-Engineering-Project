@@ -11,7 +11,7 @@ function SearchCatalogPage() {
   }, []);
   return (
     <>
-      <SearchBar />
+      <SearchBar hasFilter={true} />
       <div className="row w-100">
         <div className="col">
           <div className="row">
