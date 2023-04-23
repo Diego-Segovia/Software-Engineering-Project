@@ -13,35 +13,6 @@ function SearchCatalogPage() {
     <>
       <SearchBar />
       <div className="row w-100">
-        <div className="col-md-2 mx-3 mb-3">
-          <div className="card bg-light p-2">
-            <div className="m-3">
-              <h5 className="mb-4">Filter</h5>
-              <input
-                type="email"
-                className="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Title"
-              />
-            </div>
-            <div className="m-3">
-              <input
-                type="email"
-                className="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Author"
-              />
-            </div>
-            <div className="m-3">
-              <input
-                type="email"
-                className="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Genre"
-              />
-            </div>
-          </div>
-        </div>
         <div className="col">
           <div className="row">
             {books.map((book) => (

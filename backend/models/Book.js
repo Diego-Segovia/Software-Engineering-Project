@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) =>
         type: DataTypes.STRING,
       },
       synopsis: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
       },
     },
     {
