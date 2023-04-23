@@ -29,7 +29,7 @@ const NavBar = () => {
           </Nav.Link>
           <Nav.Link>
             <Link
-              to="/searchCatalog"
+              to="/books"
               style={{ color: "white", textDecoration: "none" }}
             >
               Catalog
