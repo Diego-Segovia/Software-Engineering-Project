@@ -37,7 +37,7 @@ const NavBar = () => {
           </Nav.Link>
           <Nav.Link>
             <Link
-              to="/userPatronProfile"
+              to="/LibrarianProfilePage"
               style={{ color: "white", textDecoration: "none" }}
             >
               Profile
