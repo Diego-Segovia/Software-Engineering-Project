@@ -1,5 +1,5 @@
-import DetailedBook from "../components/UI/DetailedBook";
-import SearchBar from "../components/UI/SearchBar";
+import DetailedBook from "../components/DetailedBook";
+import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import { fetchBooks } from "../utils/utils";
 

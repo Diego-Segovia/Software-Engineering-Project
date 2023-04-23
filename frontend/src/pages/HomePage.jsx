@@ -1,6 +1,6 @@
-import BookSection from "../components/UI/BookSection";
-import Jumbotron from "../components/UI/Jumbotron";
-import SearchBar from "../components/UI/SearchBar";
+import BookSection from "../components/BookSection";
+import Jumbotron from "../components/Jumbotron";
+import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import { fetchBooks } from "../utils/utils";
 
