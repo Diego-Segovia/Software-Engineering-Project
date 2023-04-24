@@ -81,7 +81,7 @@
   left: auto;
 }
 .slick-prev:before {
-  content: url("../../assets/previous.png");
+  content: url("../assets/previous.png");
 }
 [dir="rtl"] .slick-prev:before {
   content: "⫸";
@@ -95,7 +95,7 @@
   left: -25px;
 }
 .slick-next:before {
-  content: url("../../assets/next.png");
+  content: url("../assets/next.png");
 }
 [dir="rtl"] .slick-next:before {
   content: "⫷";

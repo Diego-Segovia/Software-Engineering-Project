@@ -1,56 +1,49 @@
-import Button from "react-bootstrap/Button";
+import React from "react";
+import { Navbar, Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import "./NavBarComponent.css";
+import LoginModal from "./LoginModal";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 
-function NavScrollExample() {
+const NavBar = () => {
   return (
-    <div className="nav-scroll">
-      <Navbar bg="blue" expand="lg" fixed="top" variant="dark">
-        <Container fluid className="navbar-Container">
-          <Navbar.Brand href="#" className="navbar-custom">
-            Library Management System
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0 "
-              style={{ maxHeight: "100px" }}
-              navbarScroll
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="https://cdn-icons-png.flaticon.com/512/3627/3627782.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          LibraSphere
+        </Navbar.Brand>
+      </Container>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav className="mr-auto mx-1">
+          <Nav.Link>
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              <FontAwesomeIcon className="mx-auto" icon={faHome} /> Home
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link
+              to="/books"
+              style={{ color: "white", textDecoration: "none" }}
             >
-              <Link to="/">Home</Link>
-              <Nav.Link to={"/"}>Profile</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-
-              <Link to="/Login">Login</Link>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="dark">Search</Button>
-            </Form>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+              <FontAwesomeIcon className="mx-auto" icon={faBookOpen} /> Catalog
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
+            <LoginModal />
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
-}
+};
 
-export default NavScrollExample;
+export default NavBar;

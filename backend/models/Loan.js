@@ -1,35 +1,35 @@
 module.exports = (sequelize, DataTypes) =>
   sequelize.define(
-    "book",
+    "loan",
     {
-      bookid: {
+      loanid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
       },
-      isbn: {
-        type: DataTypes.STRING,
-      },
-      booktitle: {
-        type: DataTypes.STRING,
-      },
-      publisherid: {
+      bookid: {
         type: DataTypes.INTEGER,
       },
-      genreid: {
+      patronid: {
         type: DataTypes.INTEGER,
       },
-      numcopies: {
+      fineid: {
         type: DataTypes.INTEGER,
       },
-      bookimage: {
-        type: DataTypes.STRING,
+      librarianid: {
+        type: DataTypes.INTEGER,
       },
-      synopsis: {
-        type: DataTypes.TEXT,
+      loandate: {
+        type: DataTypes.DATE,
+      },
+      returndate: {
+        type: DataTypes.DATE,
+      },
+      statusid: {
+        type: DataTypes.INTEGER,
       },
     },
     {
-      tableName: "book",
+      tableName: "loan",
       timestamps: false,
     }
   );
