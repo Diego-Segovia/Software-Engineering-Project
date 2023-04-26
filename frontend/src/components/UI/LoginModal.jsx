@@ -42,6 +42,11 @@ const LoginModal = () => {
                 </a>
               </Form.Text>
             </Form.Group>
+			
+			<Link to={"/librarianDashboard"} style={{fontSize: ".8rem"}}>
+				Librarian Dashboard
+			</Link>
+			
           </Form>
         </Modal.Body>
         <Modal.Footer>
