@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Button, Modal, Form, Col, Tabs, Tab } from "react-bootstrap";
-import SearchBar from "../components/UI/SearchBar";
+import SearchBar from "../components/SearchBar";
 import TableComponent from "../components/TableComponent";
 
 function LibrarianDashboardPage() {
