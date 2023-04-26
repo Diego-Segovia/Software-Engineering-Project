@@ -10,8 +10,26 @@ const sequelize = new Sequelize({
   dialect: "postgres",
 });
 
-const models = [require("./AuthorBook"), require("./Book")];
+const Book = require("./Book")(sequelize, DataTypes);
+const Author = require("./Author")(sequelize, DataTypes);
+const Genre = require("./Genre")(sequelize, DataTypes);
+const Publisher = require("./Publisher")(sequelize, DataTypes);
 
-for (const model of models) model(sequelize, DataTypes);
+// Author Book many-to-many relationship
+Book.belongsToMany(Author, { through: "author_book", foreignKey: "bookid" });
+Author.belongsToMany(Book, { through: "author_book", foreignKey: "authorid" });
 
-module.exports = sequelize;
+// Book to Genre relationship
+Book.belongsTo(Genre, { foreignKey: "genreid" });
+// Book to Publisher relationship
+Book.belongsTo(Publisher, { foreignKey: "publisherid" });
+
+const db = {
+  sequelize,
+  Author,
+  Book,
+  Genre,
+  Publisher,
+};
+
+module.exports = db;

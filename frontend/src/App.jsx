@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SearchCatalogPage from "./pages/SearchCatalogPage";
 import HomePage from "./pages/Homepage";
 import RootLayout from "./pages/Root";
-import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
+import DetailBookPage from "./pages/DetailBookPage";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +11,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/searchCatalog", element: <SearchCatalogPage /> },
-	  { path: "/librarianDashboard", element: <LibrarianDashboardPage /> }
+      { path: "/books", element: <SearchCatalogPage /> },
+      { path: "/books/:bookId", element: <DetailBookPage /> },
     ],
   },
 ]);
