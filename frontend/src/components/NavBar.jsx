@@ -9,7 +9,7 @@ import { faHome, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 const NavBar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Container>
+      <div className="container w-25">
         <Navbar.Brand href="#home">
           <img
             alt=""
@@ -20,7 +20,7 @@ const NavBar = () => {
           />{" "}
           LibraSphere
         </Navbar.Brand>
-      </Container>
+      </div>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className="mr-auto mx-1">
