@@ -5,6 +5,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import BookSection from "../components/UI/BookSection";
 import { Link } from "react-router-dom";
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+
+ 
 
 
 
@@ -84,39 +88,112 @@ const bookData = [
     },
   ];
 
+ 
+
 function UserPatronPage(){
+
+  
     return(
         
         <>
      
      
       <Container fluid   style={{ backgroundColor:"white" }}>
-        <Row  className=" bg-dark rounded-3" style={{ border: '30px solid white' , position: 'relative', borderRadius:"30px" }}>
-          <Col className="d-flex align-items-center justify-content-left col-3 bg-dark" 
+        <Row  className=" bg-light rounded-3" style={{ border: '30px solid white' , position: 'relative', borderRadius:"30px" }}>
+
+          <Col className="d-flex align-items-center justify-content-left col-3 bg-light m-auto mt-4" 
           style={{ position: 'relative' }}>
-            <div  className="  m-auto bg-dark"
-            style={{    }}>
-              <h1 className=" text-center w-100 text-light" style={{  }}>Kennedi Serrano</h1>
+
+            <div className="card m-auto bg-dark ">
+            
+           
+            
               
-              <Card  className=" bg-dark" style={{ width: '18rem' , marginTop:'50px'}}>
+              
+              <Card  className=" bg-dark outline-light p-4" style={{  }}>
+                
                 <Card.Img variant="primary" 
-                className=" d-flex justify-content-center m-auto rounded-3  "
+                className=" d-flex justify-content-center m-auto rounded-circle bg-light "
                 src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" style={{ width: '100%', height: '400px' }} />
                 <Card.Body className=" bg-dark"   >
+                <h1 className=" text-center w-100 text-light" style={{  }}>Kennedi Serrano</h1>
                   <Button variant="light" className=" d-flex justify-content-center m-auto">Change Image</Button>
                 </Card.Body>
               </Card>
+            
             </div>
+
+            
           </Col>
          
           <Col className="d-flex   col-8  justify-content-center m-auto mt-4 me-5 rounded-4"
           style={{    position: 'relative'}}> 
+          
           <div 
            style={{ }}
-           className="   w-100">
+           className="card bg-dark  w-100   ">
+
+          
+
+                
+
+       
+<div className="  nav-tabs border-dark ">
+        
+
+        
+        <h4 className="text-light mb-2">Profile</h4>
+          <Tabs defaultActiveKey={"first"} className="border-light  border-1 ">
+            <Tab eventKey={"first"} title="Info" className=" border-info ">
+              
+            <div className="Container border-info ">
+            <div className="input-group mb-2" style={{ }}>
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start  " style={{  borderRadius: '30px' }}>First Name</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Adam</h3>
+    
+            </div>
              
-            
-              <div className="input-group mb-2" style={{ border: '5px solid ' }}>
+              <div className="input-group mb-2 " style={{  }}>
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Last Name</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>West</h3>
+         
+            </div>
+             
+              <div className="input-group  mb-2">
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Email</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Adamwest@gmail.com</h3>
+          
+            </div>
+              
+              <div className="input-group mb-2 ">
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Address</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Saints Andrews Dr 3214</h3>
+          
+            </div>
+             
+              <div className="input-group mb-2">
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>City</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Orlando</h3>
+         
+            </div>
+
+              <div className="input-group mb-2">
+              <h5 className=" text-center w-100 text-secondary bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>Zipcode</h5>
+              <h3 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>06224</h3>
+             
+            </div>
+
+              <Button variant="light" className="  w-50 d-flex justify-content-center m-auto mb-4 mt-4 "
+              style={{   }}>Save</Button>
+
+              
+</div>
+
+            </Tab>
+            <Tab eventKey={"second"} title="Change Infomation">
+              
+                  
+            <div className="input-group mb-2" style={{ border: '5px solid ' }}>
               <h2 className=" text-center w-100 text-light bg-dark d-flex justify-content-start  " style={{  borderRadius: '30px' }}>First Name</h2>
              <input type="text" className="form-control w-80 rounded-3" placeholder="Recipient's Firstname" aria-label="Recipient's username" aria-describedby="button-addon2" />
             <button className="btn btn-outline-secondary bg-light" style={{ }} type="button" id="button-addon2">Edit</button>
@@ -139,8 +216,8 @@ function UserPatronPage(){
              <input type="text" className="form-control rounded-3" placeholder="Recipient's Address" aria-label="Recipient's username" aria-describedby="button-addon2" />
             <button className="btn btn-outline-secondary" style={{ color:'white'}} type="button" id="button-addon2">Edit</button>
             </div>
-             
-              <div className="input-group mb-2">
+
+            <div className="input-group mb-2">
               <h2 className=" text-center w-100 text-light bg-dark d-flex justify-content-start " style={{  borderRadius: '30px' }}>City</h2>
              <input type="text" className="form-control rounded-3" placeholder="Recipient's City" aria-label="Recipient's username" aria-describedby="button-addon2" />
             <button className="btn btn-outline-secondary" style={{ color:'white'}} type="button" id="button-addon2">Edit</button>
@@ -151,15 +228,203 @@ function UserPatronPage(){
              <input type="number" className="form-control rounded-3" placeholder="Recipient's Zipcode" aria-label="Recipient's username" aria-describedby="button-addon2" />
             <button className="btn btn-outline-secondary" style={{ color:'white'}} type="button" id="button-addon2">Edit</button>
             </div>
+             
+             
 
               <Button variant="light" className="  w-50 d-flex justify-content-center m-auto mb-4 mt-4 "
               style={{   }}>Save</Button>
 
+            </Tab>
+            <Tab eventKey={"third"} title="Change Password">
+              <div className="card bg-secondary w-50 m-auto mt-5 mb-5">
+              <form action="/action_page.php">
+  <div class="form-group m-4">
+  <label for="pwd"><h2>Current Password:</h2></label>
+    <input type="password" className="form-control" id="email"/>
+  </div>
+  <div class="form-group m-4">
+    <label for="pwd"><h2>New Password:</h2></label>
+    <input type="password" className="form-control" id="pwd"/>
+  </div>
+  
+  <button type="submit" className="btn btn-default bg-dark text-light ms-4 mb-3">Submit</button>
+</form>
+
+
+              </div>
+
+            </Tab>
+          </Tabs>
+
+        </div>
+
+       </div>
              
-              
-            </div>
+        
           </Col>
         </Row>
+        <Row>
+          <Col className=" ms-1 rounded col-5">
+          <div className="card w-50   my-5   m-auto ms-4   "  style={{ height: '200px', background:"#E8DFDA"}}>
+  <Link
+              to="/userPatronProfile"
+              style={{ textDecoration:"none" }}
+            >
+    <div className="col  text-dark bg-primary bg-secondary d-flex justify-content-center m-auto align-items-center w-100 rounded" style={{ height: '200px'}}>
+   
+   
+               <button className="btn btn-outline-light w-100 h-100" style={{ color:'white'}} type="button" id="button-addon2">  <h1 className=" ">
+        Acount Management
+      </h1></button>
+              
+
+      </div>
+      </Link>
+  </div>
+          </Col>
+          <Col>
+        <div className="card w-100 bg-dark m-auto  mt-5 mb-2 .overflow-auto overflow-y: scroll p-1  " style={{ maxHeight:"300px" , overflowY:"scroll" }}>
+        <table className="table table-dark table-striped table-hover .overflow-auto overflow-y: scroll" style={{ maxHeight:"300px",  overflowY:"scroll" }}>
+  <thead>
+    <h3>Late Fees</h3>
+    <tr>
+      <th scope="col" className="bg-info">#</th>
+      <th scope="col" className="bg-info">Book Name</th>
+      <th scope="col" className="bg-info">Check in Date</th>
+      <th scope="col" className="bg-info text-danger">Due Date</th>
+      <th scope="col" className="bg-info "> Amount</th>
+      <th scope="col" className="bg-info "> status</th>
+    </tr>
+  </thead>
+  <tbody>
+   
+      <tr >
+      <th scope="row">1</th>
+      <td>firstname</td>
+      <td>lastname</td>
+      <td className="text-danger">@mdo</td>
+      <td>@mdo</td>
+      <td><Link
+              to="/PaymentPage"
+            >
+               <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+            </Link></td>
+      
+      
+    </tr>, 
+    <tr>
+    <th scope="row">2</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td className="text-danger">@fat</td>
+    <td>@mdo</td>
+    <td><Link
+            to="/PaymentPage"
+          >
+             <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+          </Link></td>
+    
+  </tr> ,
+  <tr>
+  <th scope="row">3</th>
+  <td>Jacob</td>
+  <td>Thornton</td>
+  <td className="text-danger">@fat</td>
+  <td>@mdo</td>
+  <td> <Link
+          to="/PaymentPage"
+        >
+           <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+        </Link> </td>
+</tr> ,
+<tr>
+      <th scope="row">4</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <td> <Link
+              to="/PaymentPage"
+            >
+               <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+            </Link> </td>
+    </tr>,
+    <tr>
+    <th scope="row">5</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td className="text-danger">@fat</td>
+    <td>@mdo</td>
+    <td> <Link
+            to="/PaymentPage"
+          >
+             <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+          </Link> </td>
+  </tr>, 
+  <tr>
+  <th scope="row">6</th>
+  <td>Jacob</td>
+  <td>Thornton</td>
+  <td className="text-danger">@fat</td>
+  <td>@mdo</td>
+  <td> <Link
+          to="/PaymentPage"
+        >
+           <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+        </Link> </td>
+</tr> ,
+<tr>
+      <th scope="row">7</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <td> <Link
+              to="/PaymentPage"
+            >
+               <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+            </Link> </td>
+    </tr>,
+     <tr>
+     <th scope="row">8</th>
+     <td>Jacob</td>
+     <td>Thornton</td>
+     <td className="text-danger">@fat</td>
+     <td>@mdo</td>
+     <td> <Link
+             to="/PaymentPage"
+           >
+              <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+           </Link> </td>
+   </tr> ,
+   <tr>
+   <th scope="row">9</th>
+   <td>Jacob</td>
+   <td>Thornton</td>
+   <td className="text-danger">@fat</td>
+   <td>@mdo</td>
+   <td> <Link
+           to="/PaymentPage"
+         >
+            <button className="btn btn-info  ms-4 mb-2  mt-2 w- h-25 text-light d-flex justify-content-center" style={{ }} type="button" id="button-addon2" >Pay</button>
+         </Link> </td>
+ </tr> 
+
+
+
+
+    
+
+    
+   
+  
+    
+  </tbody>
+</table>
+        </div>
+        </Col>
+        
+       </Row>
         
           
       
@@ -213,140 +478,112 @@ function UserPatronPage(){
        </Row>
 
        <Row  className="">
-        <Col>
-       <div className="card w-75  m-auto mb-5 bg-secondary   " >
-       <div className="container  ">
-  <div className="row">
-    <div className="col mb-4 text-dark">
-      <h1>
-        Late Fees
-      </h1>
-      </div>
-  </div>
-  <div className="row bg-secondary rounded-3 text-light m-auto">
-    <div className="col-2 ">
-      <h4>
-      Book Name
-        </h4></div>
-    <div className="col-2">
-    <h4>
-      Check in Date
-        </h4>
-      </div>
-    <div className="col-2">
-    <h4>
-      Check out Date
-        </h4>
-    </div>
-    <div className="col-2">
-    <h4>
-      Due Date
-        </h4>
-    </div>
-    <div className="col-2">
-    <h4>
-      Amount
-        </h4>
-    </div>
-    <div className="col-2 ">
-    <h4>
-      Status
-        </h4>
-    </div>
-  </div>
-
-  <div className="row bg-light rounded-3  mt-1">
-    <div className="col-2 ">
-      </div>
-    <div className="col-2">
-    
-      </div>
-    <div className="col-2">
-    
-    </div>
-    <div className="col-2">
-    
-    </div>
-    <div className="col-2">
-    
-    </div>
-    <div className="col-2">
-    <h5>
-    
-        </h5>
-    </div>
-  </div>
-
-  <div className="row .overflow-auto overflow-y: scroll   " style={{ maxHeight:"300px" , overflowY:"scroll" }} >
- 
-  <div className="col-2 mt-2 .overflow-auto  ">
-  <ul className="list-group list-group-flush rounded-3  ">
-    <li className="list-group-item mb-2  o">An item</li>
-    <li className="list-group-item mb-2">A second item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-  </ul>
-  </div>
-    <div className="col-2 mt-2">
-    <ul className="list-group list-group-flush rounded">
-    <li className="list-group-item mb-2">An item</li>
-    <li className="list-group-item mb-2">A second item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-  </ul>
-    </div>
-
-    <div className="col-2 mt-2">
-    <ul className="list-group list-group-flush">
-    <li className="list-group-item mb-2">An item</li>
-    <li className="list-group-item mb-2">A second item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-  </ul>
-    </div>
-    <div className="col-2 mt-2">
-    <ul className="list-group list-group-flush">
-    <li className="list-group-item mb-2 text-danger">An item</li>
-    <li className="list-group-item mb-2 text-danger">A second item</li>
-    <li className="list-group-item mb-2 text-danger">A third item</li>
-    <li className="list-group-item mb-2 text-danger">A third item</li>
-    <li className="list-group-item mb-2 text-danger">A third item</li>
-  </ul>
-    </div>
-    <div className="col-2 mt-2">
-    <ul className="list-group list-group-flush">
-    <li className="list-group-item mb-2">An item</li>
-    <li className="list-group-item mb-2">A second item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-    <li className="list-group-item mb-2">A third item</li>
-  </ul>
-    </div>
-    <div className="col-2 mt-3">
-    <ul className="list-group list-group-flush">
-    <button className="btn btn-outline-secondary bg-warning m-auto mb-2 w-50" style={{ color:'black'}} type="button" id="button-addon2">Pay</button>
-    <button className="btn btn-outline-secondary bg-warning m-auto mb-2 w-50" style={{ color:'black'}} type="button" id="button-addon2">Pay</button>
-    <button className="btn btn-outline-secondary bg-warning m-auto mb-2 w-50" style={{ color:'black'}} type="button" id="button-addon2">Pay</button>
-    <button className="btn btn-outline-secondary bg-warning m-auto mb-2 w-50" style={{ color:'black'}} type="button" id="button-addon2">Pay</button>
-    <button className="btn btn-outline-secondary bg-warning m-auto mb-2 w-50" style={{ color:'black'}} type="button" id="button-addon2">Pay</button>
-  </ul>
-    </div>
-  </div>
-</div>
-</div>
-</Col>
+        
 <Col>
 <div className="card w-75 bg-dark m-auto   " >
 <BookSection bookData={bookData}  /> 
 </div>
 </Col>
        </Row>
+
+       <Row>
+        <div className="card w-50 bg-dark m-auto mt-5 mb-2 .overflow-auto overflow-y: scroll p-1 " style={{ maxHeight:"300px" , overflowY:"scroll" }}>
+        <table className="table table-dark table-striped table-hover .overflow-auto overflow-y: scroll" style={{ maxHeight:"300px",  overflowY:"scroll" }}>
+  <thead>
+    <tr>
+      <th scope="col" className="bg-info">#</th>
+      <th scope="col" className="bg-info">Book Name</th>
+      <th scope="col" className="bg-info">Check in Date</th>
+      <th scope="col" className="bg-info text-danger">Due Date</th>
+      <th scope="col" className="bg-info "> Amount</th>
+      <th scope="col" className="bg-info "> status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td className="text-danger">@mdo</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2  mt-2 w-50 h-25 text-light d-flex justify-content-center align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2  w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2 w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2 w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2 w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2 w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info ms-4 mb-2  w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2  w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td className="text-danger">@fat</td>
+      <td>@mdo</td>
+      <button className="btn btn-info  ms-4 mb-2  w-50 text-light d-flex justify-content-center m-auto align-items-center" style={{ }} type="button" id="button-addon2">Pay</button>
+    </tr>
+  
+   
+  </tbody>
+</table>
+        </div>
+
+        
+       </Row>
+
+      
+
+      
       </Container>
    
      
