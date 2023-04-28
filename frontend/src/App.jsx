@@ -6,6 +6,7 @@ import RootLayout from "./pages/Root";
 import UserPatronPage from "./pages/UserPatronPage";
 import LibrarianProfilePage from "./pages/LibrarianProfilePage";
 import DetailBookPage from "./pages/DetailBookPage";
+import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/books", element: <SearchCatalogPage /> },
       { path: "/books/:bookId", element: <DetailBookPage /> },
+      { path: "/librarianDashboard", element: <LibrarianDashboardPage /> },
     ],
   },
 ]);
