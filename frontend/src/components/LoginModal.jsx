@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 
 const LoginModal = () => {
   const [show, setShow] = useState(false);
@@ -15,7 +17,7 @@ const LoginModal = () => {
         style={{ color: "white", textDecoration: "none" }}
         onClick={handleShow}
       >
-        Login
+        <FontAwesomeIcon className="mx-auto" icon={faSignIn} /> Login
       </Link>
 
       <Modal show={show} onHide={handleClose} centered>
@@ -42,6 +44,11 @@ const LoginModal = () => {
                 </a>
               </Form.Text>
             </Form.Group>
+			
+			<Link to={"/librarianDashboard"} style={{fontSize: ".8rem"}}>
+				Librarian Dashboard
+			</Link>
+			
           </Form>
         </Modal.Body>
         <Modal.Footer>

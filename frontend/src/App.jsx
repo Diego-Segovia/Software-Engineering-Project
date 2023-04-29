@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SearchCatalogPage from "./pages/SearchCatalogPage";
 import HomePage from "./pages/Homepage";
 import RootLayout from "./pages/Root";
+import DetailBookPage from "./pages/DetailBookPage";
+import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +12,9 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/searchCatalog", element: <SearchCatalogPage /> },
+      { path: "/books", element: <SearchCatalogPage /> },
+      { path: "/books/:bookId", element: <DetailBookPage /> },
+      { path: "/librarianDashboard", element: <LibrarianDashboardPage /> },
     ],
   },
 ]);

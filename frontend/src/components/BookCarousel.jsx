@@ -55,16 +55,18 @@ export default class BookCarousel extends Component {
     };
 
     return (
-      <div className="ms-5 me-5 p-3">
+      <div className="ms-3">
         <h3>Featured</h3>
         <hr />
-        <Slider {...settings}>
-          {books.map((book) => (
-            <div>
-              <Book bookInfo={book} />
-            </div>
-          ))}
-        </Slider>
+        <div className="mb-3 mx-5">
+          <Slider {...settings}>
+            {books.map((book) => (
+              <div className="mb-4">
+                <Book bookInfo={book} />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     );
   }
