@@ -1,4 +1,3 @@
-
 -- queries to populate the database with 50 unique books.
 
 INSERT INTO Author (firstName, lastName) VALUES
@@ -69,3 +68,21 @@ INSERT INTO Author_Book (authorID, bookID) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+INSERT INTO membership (description) VALUES 
+('Returned'),
+('Pending');
+
+INSERT INTO users (firstname, lastname, , userRole, userimage, authusername, authpassword) VALUES
+('Pedro', 'Pascal', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Pedrito@123', 'Password@123'),
+('Emily', 'Dickinson', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Em@123', 'Hehe@456'),
+('Kennedy', 'Washington', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Kenny@123', 'NoQuema@123'),
+('Micah', 'Wiltman', 'Librarian', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Micah@123', 'Password@123');
+
+INSERT INTO library_patron (patronid, membershipid) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
+INSERT INTO librarian (librarianid, staffid) VALUES 
+(4, '01');
