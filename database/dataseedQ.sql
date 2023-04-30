@@ -70,6 +70,9 @@ INSERT INTO Author_Book (authorID, bookID) VALUES
 (10, 10);
 
 INSERT INTO membership (description) VALUES 
+('Loaned Out'),
+('Overdue'),
+('Lost'),
 ('Returned'),
 ('Pending');
 
@@ -86,3 +89,16 @@ INSERT INTO library_patron (patronid, membershipid) VALUES
 
 INSERT INTO librarian (librarianid, staffid) VALUES 
 (4, '01');
+
+INSERT INTO fine (fineamt, finedesc) VALUES 
+(5, 'Overdue on loan return date.'),
+(15, 'Loaned out book was returned damaged.'),
+(30, 'Loaned out book was lost.');
+
+INSERT INTO loan (bookid, patronid, librarianid, loandate, returndate, statusid) VALUES
+(1, 1, 4, '2023-04-28', '2023-05-28', 1),
+(2, 1, 4, '2023-02-22', '2023-03-22', 4);
+
+INSERT INTO loan (bookid, patronid, fineid, librarianid, loandate, returndate, statusid) VALUES
+(3, 2, 2, 4, '2023-03-06', '2023-04-06', 4),
+(4, 2, 1, 4, '2023-02-22', '2023-03-22', 2);
