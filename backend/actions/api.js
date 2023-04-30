@@ -21,7 +21,7 @@ const generalBookInfoQuery = {
 };
 
 // Retrieve all books from database
-const getBooks = async (req, res) => {
+const getBooks = async (req, res, next) => {
   const data = await db.Book.findAll(generalBookInfoQuery);
   const booksJSON = data.map((book) => book.toJSON());
   res.json(booksJSON);
@@ -29,7 +29,7 @@ const getBooks = async (req, res) => {
 };
 
 // Retrieve a specific book based on ID
-const getBookById = async (req, res) => {
+const getBookById = async (req, res, next) => {
   const bookId = req.params.bookId;
 
   const book = await db.Book.findOne({
@@ -47,7 +47,7 @@ const getBookById = async (req, res) => {
 };
 
 // Create a book loan in database
-const createLoan = async (req, res) => {
+const createLoan = async (req, res, next) => {
   try {
     const loan = await db.Loan.create(req.body);
     console.log("Loan created successfully.");
