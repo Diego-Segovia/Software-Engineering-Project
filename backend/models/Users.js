@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) =>
       userid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
       },
       firstname: {
         type: DataTypes.STRING,
@@ -19,6 +20,9 @@ module.exports = (sequelize, DataTypes) =>
         type: DataTypes.STRING,
       },
       authpassword: {
+        type: DataTypes.STRING,
+      },
+      userrole: {
         type: DataTypes.STRING,
       },
     },

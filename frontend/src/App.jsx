@@ -5,6 +5,8 @@ import HomePage from "./pages/Homepage";
 import RootLayout from "./pages/Root";
 import DetailBookPage from "./pages/DetailBookPage";
 import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
+import PatronSignUp from "./pages/PatronSignUp";
+import LibrarianSignUp from "./pages/LibrarianSignUp";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,8 @@ const router = createBrowserRouter([
       { path: "/books", element: <SearchCatalogPage /> },
       { path: "/books/:bookId", element: <DetailBookPage /> },
       { path: "/librarianDashboard", element: <LibrarianDashboardPage /> },
+      { path: "/patron-signup", element: <PatronSignUp /> },
+      { path: "/staff-signup", element: <LibrarianSignUp /> },
     ],
   },
 ]);

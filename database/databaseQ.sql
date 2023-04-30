@@ -46,7 +46,8 @@ CREATE TABLE Users (
   lastName VARCHAR(255) NOT NULL,
   userImage VARCHAR(255) NOT NULL,
   authUsername VARCHAR(255) NOT NULL,
-  authPassword VARCHAR(255) NOT NULL
+  authPassword VARCHAR(255) NOT NULL,
+  userRole VARCHAR(50) NOT NULL CHECK (userRole IN ('Library_Patron', 'Librarian'))
 );
 
 -- Loan Status

@@ -1,4 +1,3 @@
-
 -- queries to populate the database with 50 unique books.
 
 INSERT INTO Author (firstName, lastName) VALUES
@@ -69,3 +68,37 @@ INSERT INTO Author_Book (authorID, bookID) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+INSERT INTO membership (description) VALUES 
+('Loaned Out'),
+('Overdue'),
+('Lost'),
+('Returned'),
+('Pending');
+
+INSERT INTO users (firstname, lastname, , userRole, userimage, authusername, authpassword) VALUES
+('Pedro', 'Pascal', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Pedrito@123', 'Password@123'),
+('Emily', 'Dickinson', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Em@123', 'Hehe@456'),
+('Kennedy', 'Washington', 'Library_Patron', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Kenny@123', 'NoQuema@123'),
+('Micah', 'Wiltman', 'Librarian', 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png', 'Micah@123', 'Password@123');
+
+INSERT INTO library_patron (patronid, membershipid) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
+INSERT INTO librarian (librarianid, staffid) VALUES 
+(4, '01');
+
+INSERT INTO fine (fineamt, finedesc) VALUES 
+(5, 'Overdue on loan return date.'),
+(15, 'Loaned out book was returned damaged.'),
+(30, 'Loaned out book was lost.');
+
+INSERT INTO loan (bookid, patronid, librarianid, loandate, returndate, statusid) VALUES
+(1, 1, 4, '2023-04-28', '2023-05-28', 1),
+(2, 1, 4, '2023-02-22', '2023-03-22', 4);
+
+INSERT INTO loan (bookid, patronid, fineid, librarianid, loandate, returndate, statusid) VALUES
+(3, 2, 2, 4, '2023-03-06', '2023-04-06', 4),
+(4, 2, 1, 4, '2023-02-22', '2023-03-22', 2);

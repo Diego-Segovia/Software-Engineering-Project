@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) =>
       loanid: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true,
       },
       bookid: {
         type: DataTypes.INTEGER,
