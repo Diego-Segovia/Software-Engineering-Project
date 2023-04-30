@@ -8,6 +8,7 @@ import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
 import PatronSignUp from "./pages/PatronSignUp";
 import LibrarianSignUp from "./pages/LibrarianSignUp";
 import SettingsPage from './pages/SettingsPage';
+import PatronProfile from './pages/PatronProfile';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "/patron-signup", element: <PatronSignUp /> },
       { path: "/staff-signup", element: <LibrarianSignUp /> },
       { path: "/settings", element: <SettingsPage /> },
+      { path: "/patron-profile", element: <PatronProfile /> },
     ],
   },
 ]);
