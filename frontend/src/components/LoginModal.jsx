@@ -97,7 +97,10 @@ const LoginModal = () => {
                 </Form.Text>
                 <br />
                 <Form.Text>
-                  <Link style={{ textDecoration: "none" }}>
+                  <Link
+                    to="/librarianDashboard"
+                    style={{ textDecoration: "none" }}
+                  >
                     Librarian Dashboard
                   </Link>
                 </Form.Text>
