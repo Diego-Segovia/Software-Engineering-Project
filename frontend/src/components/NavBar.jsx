@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
 import LoginModal from "./LoginModal";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,15 +9,17 @@ const NavBar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <div className="container w-25">
-        <Navbar.Brand href="#home">
-          <img
-            alt=""
-            src="https://cdn-icons-png.flaticon.com/512/3627/3627782.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{" "}
-          LibraSphere
+        <Navbar.Brand>
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <img
+              alt=""
+              src="https://cdn-icons-png.flaticon.com/512/3627/3627782.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
+            LibraSphere
+          </Link>
         </Navbar.Brand>
       </div>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
