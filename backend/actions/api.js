@@ -58,8 +58,39 @@ const createLoan = async (req, res, next) => {
   }
 };
 
+const signUpUser = async (req, res, next) => {
+  try {
+    const user = await db.Users.create(req.body);
+    console.log("User created successfully.");
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+    console.log("User creation error!");
+    console.log(error);
+  }
+};
+
+const loginUser = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+const getUsers = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+const getUserById = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
 module.exports = {
   getBooks,
   getBookById,
   createLoan,
+  signUpUser,
+  loginUser,
+  getUsers,
+  getUserById,
 };
