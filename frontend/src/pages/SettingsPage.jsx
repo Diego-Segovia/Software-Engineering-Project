@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Card, Form, Button } from "react-bootstrap";
 
 const SettingsPage = () => {
+    const onClickHandler = (e) => {
+        e.preventDefault()
+    }
   return (
     <Container className="d-flex justify-content-center align-items-center" style={{ height: '90vh' }}>
       <Card style={{ width: "30rem", backgroundColor: "#f8f9fa" , minHeight : "35vh"}}>
@@ -25,7 +28,7 @@ const SettingsPage = () => {
               </Form.Control>
             </Form.Group>
             <div className="d-flex justify-content-center" style={{ marginTop: "20px" }}>
-              <Button variant="primary" type="submit" style={{ backgroundColor : "#36454F", borderColor : "36454F"}}>
+              <Button variant="primary" type="submit" onClick={onClickHandler} style={{ backgroundColor : "#36454F", borderColor : "36454F"}}>
                 Save Changes
               </Button>
             </div>

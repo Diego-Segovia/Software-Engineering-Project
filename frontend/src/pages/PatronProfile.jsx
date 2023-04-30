@@ -21,9 +21,7 @@ const PatronProfile = () => {
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
-    if (editMode) {
-      setFields(defaultFields);
-    }
+    if (editMode) setFields(defaultFields);
   };
 
   const handleChange = (e) => {
