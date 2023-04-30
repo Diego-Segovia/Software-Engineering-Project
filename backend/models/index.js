@@ -16,6 +16,7 @@ const Author = require("./Author")(sequelize, DataTypes);
 const Genre = require("./Genre")(sequelize, DataTypes);
 const Publisher = require("./Publisher")(sequelize, DataTypes);
 const Loan = require("./Loan")(sequelize, DataTypes);
+const Users = require("./Users")(sequelize, DataTypes);
 
 // Author Book many-to-many relationship
 Book.belongsToMany(Author, { through: "author_book", foreignKey: "bookid" });
@@ -34,6 +35,7 @@ const db = {
   Genre,
   Publisher,
   Loan,
+  Users,
 };
 
 module.exports = db;
