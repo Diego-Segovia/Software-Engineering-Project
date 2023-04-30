@@ -3,7 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import LoginModal from "./LoginModal";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faBookOpen, faGear } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   return (
@@ -40,6 +40,14 @@ const NavBar = () => {
           </Nav.Link>
           <Nav.Link>
             <LoginModal />
+          </Nav.Link>
+          <Nav.Link>
+            <Link
+              to="/settings"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <FontAwesomeIcon className="mx-auto" icon={faGear} /> Settings
+            </Link>
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
