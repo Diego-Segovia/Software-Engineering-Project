@@ -7,9 +7,10 @@ import DetailBookPage from "./pages/DetailBookPage";
 import LibrarianDashboardPage from "./pages/LibrarianDashboardPage";
 import PatronSignUp from "./pages/PatronSignUp";
 import LibrarianSignUp from "./pages/LibrarianSignUp";
-import SettingsPage from './pages/SettingsPage';
-import PatronProfile from './pages/PatronProfile';
-
+import SettingsPage from "./pages/SettingsPage";
+import PatronProfile from "./pages/PatronProfile";
+import { AuthContext } from "./utils/auth-context";
+import { useState, useCallback } from "react";
 
 const router = createBrowserRouter([
   {
@@ -29,10 +30,34 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLibrarian, setIsLibrarian] = useState(false);
+  const [userData, setUserData] = useState();
+
+  const login = useCallback(() => setIsLoggedIn(true), []);
+  const logout = useCallback(() => setIsLoggedIn(false), []);
+
+  const setAsLibrarian = useCallback(
+    (condition) => setIsLibrarian(condition),
+    []
+  );
+
+  const setUser = useCallback((data) => setUserData(data), []);
+
   return (
-    <>
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        isLibrarian: isLibrarian,
+        userData: userData,
+        login: login,
+        logout: logout,
+        setAsLibrarian: setAsLibrarian,
+        setUser: setUser,
+      }}
+    >
       <RouterProvider router={router} />
-    </>
+    </AuthContext.Provider>
   );
 }
 
