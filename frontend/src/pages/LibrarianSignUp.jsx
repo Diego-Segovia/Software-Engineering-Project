@@ -44,7 +44,7 @@ const LibrarianSignUp = () => {
         <h2 className="mx-auto pt-2">Librarian Sign Up</h2>
         <form onSubmit={handleSubmit} className="container mt-5 mb-3">
           <div className="mb-3">
-            <label for="firstname" className="form-label">
+            <label htmlFor="firstname" className="form-label">
               First Name
             </label>
             <input
@@ -58,7 +58,7 @@ const LibrarianSignUp = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="lastname" className="form-label">
+            <label htmlFor="lastname" className="form-label">
               Last Name
             </label>
             <input
@@ -72,7 +72,7 @@ const LibrarianSignUp = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="authusername" className="form-label">
+            <label htmlFor="authusername" className="form-label">
               Username
             </label>
             <input
@@ -86,7 +86,7 @@ const LibrarianSignUp = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="authpassword" className="form-label">
+            <label htmlFor="authpassword" className="form-label">
               Password
             </label>
             <input
