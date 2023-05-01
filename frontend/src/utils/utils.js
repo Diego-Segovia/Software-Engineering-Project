@@ -104,7 +104,6 @@ export async function loginUser(data) {
       body: JSON.stringify(data),
     });
 
-    if (!response.ok) throw new Error("Login failed");
     const responseData = await response.json();
 
     return responseData;
