@@ -20,13 +20,20 @@ const SettingsPage = () => {
                 <option>Spanish</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group style={{ marginTop: "5px"}}>
               <Form.Label>Appearance</Form.Label>
               <Form.Control as="select">
                 <option>Light Mode</option>
                 <option>Dark Mode</option>
               </Form.Control>
             </Form.Group>
+            <Form.Group style={{ marginTop: "5px"}}>
+              <Form.Label>Notifications</Form.Label>
+              <Form.Control as="select">
+                <option>Off</option>
+                <option>On</option>
+              </Form.Control>
+            </Form.Group>            
             <div className="d-flex justify-content-center" style={{ marginTop: "20px" }}>
               <Button variant="primary" type="submit" onClick={onClickHandler} style={{ backgroundColor : "#36454F", borderColor : "36454F"}}>
                 Save Changes
