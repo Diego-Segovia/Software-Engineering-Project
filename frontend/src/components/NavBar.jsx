@@ -38,6 +38,14 @@ const NavBar = () => {
             </Link>
           </Nav.Link>
           <Nav.Link>
+            <Link
+              to="/users"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <FontAwesomeIcon className="mx-auto"  /> Profile
+            </Link>
+          </Nav.Link>
+          <Nav.Link>
             <LoginModal />
           </Nav.Link>
         </Nav>

@@ -18,9 +18,9 @@ const router = createBrowserRouter([
       { path: "/books", element: <SearchCatalogPage /> },
       { path: "/books/:bookId", element: <DetailBookPage /> },
       { path: "/librarianDashboard", element: <LibrarianDashboardPage /> },
-      { path: "/LibrarianProfilePage", element: <LibrarianProfilePage /> },
+      { path: "/users/:authUsername", element: <LibrarianProfilePage /> },
       { path: "/UserPatronPage", element: <UserPatronPage /> },
-      { path: "/PaymentPage", element: <PaymentPage /> },
+      { path: "/PaymentPage", element: <PaymentPage /> }
     ],
   },
 ]);

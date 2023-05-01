@@ -12,86 +12,48 @@ import Tab from 'react-bootstrap/Tab';
 
 
 
-const bookData = [
+const data = [
     {
       id: 1,
-      title: "Astrophysics for People in a Hurry",
-      author: "Neil deGrasse Tyson",
-      coverImg:
+      firstname: "John",
+      lastname: "Neil deGrasse Tyson",
+      userimage:
         "https://m.media-amazon.com/images/I/51wSvLJG-rS._SX306_BO1,204,203,200_.jpg",
+        authUsername: "kenny@gmail.com",
     },
     {
       id: 2,
-      title: "A Brief History of Time",
-      author: "Stephen Hawking",
-      coverImg:
-        "https://m.media-amazon.com/images/I/51+GySc8ExL._SX333_BO1,204,203,200_.jpg",
+      firstname: "Ethan",
+      lastname: "Stephen Hawking",
+      userimage:
+        "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg",
+        authUsername: "wilson@gmail.com",
     },
     {
       id: 3,
-      title: "Cosmos",
-      author: "Carl Sagan",
-      coverImg:
+      firstname: "Cosmos",
+      lastname: "Carl Sagan",
+      userimage:
         "https://m.media-amazon.com/images/I/51IcVjsJlDL._SX322_BO1,204,203,200_.jpg",
+        authUsername: "cookie@gmail.com",
     },
-    {
-      id: 4,
-      title: "1984",
-      author: "George Orwell",
-      coverImg:
-        "https://m.media-amazon.com/images/I/41aM4xOZxaL._SX277_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 5,
-      title: "A Heartbreaking Work of Staggering Genius",
-      author: "Dave Eggers",
-      coverImg:
-        "https://m.media-amazon.com/images/I/51em6Mq-+gL._SX320_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 6,
-      title: "A Wrinkle in Time",
-      author: "Madeleine L'Engle",
-      coverImg:
-        "https://m.media-amazon.com/images/I/41NvfPTY4hL._SX400_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 7,
-      title: "A Long Way Gone: Memoirs of a Boy Soldier",
-      author: "Ishmael Beah",
-      coverImg:
-        "https://m.media-amazon.com/images/I/41F3OLVtknL._SX330_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 8,
-      title: "In Cold Blood",
-      author: "Truman Capote",
-      coverImg:
-        "https://m.media-amazon.com/images/I/41GpHh-5KFL._SX322_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 9,
-      title: "Guns, Germs, and Steel: The Fates of Human Societies",
-      author: "Jared Diamond Ph.D.",
-      coverImg:
-        "https://m.media-amazon.com/images/I/51lVEXYsw0L._SX327_BO1,204,203,200_.jpg",
-    },
-    {
-      id: 10,
-      title:
-        "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America",
-      author: "Erik Larson",
-      coverImg:
-        "https://m.media-amazon.com/images/I/41i6RKW1IXL._SX314_BO1,204,203,200_.jpg",
-    },
+    
   ];
 
 function LibrarianProfilePage(){
+
+  const params = useParams();
+
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    fetchUserById(setUser, params.authUsername);
+}, []);
+
     return(
         
         <>
-     
-     
+   
       <Container fluid   style={{ backgroundColor:"white" }}>
       <Row  className=" bg-light rounded-3" style={{ border: '30px solid white' , position: 'relative', borderRadius:"30px" }}>
 
@@ -108,9 +70,9 @@ style={{ position: 'relative' }}>
       
       <Card.Img variant="primary" 
       className=" d-flex justify-content-center m-auto rounded-circle bg-light "
-      src="https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg" style={{ width: '100%', height: '400px' }} />
+      src={user.userimage} style={{ width: '100%', height: '400px' }} />
       <Card.Body className=" bg-dark"   >
-      <h1 className=" text-center w-100 text-light" style={{  }}>Adam Smith</h1>
+      <h1 className=" text-center w-100 text-light" style={{  }}> {user.firstname}  {user.lastname}</h1>
         <Button variant="light" className=" d-flex justify-content-center m-auto">Change Image</Button>
       </Card.Body>
     </Card>
@@ -143,19 +105,19 @@ style={{    position: 'relative', backgroundColor: "#E8DFDA" , background:"#E8DF
         
     <div className="input-group mb-2" style={{  }}>
               <h5 className=" text-center w-100 text-secondary  d-flex justify-content-start  " style={{  borderRadius: '30px' }}>First Name</h5>
-              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>Adam</h3>
+              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>{data[2].firstname} </h3>
     
             </div>
              
               <div className="input-group mb-2 " style={{}}>
               <h5 className=" text-center w-100 text-secondary  d-flex justify-content-start " style={{  borderRadius: '30px' }}>Last Name</h5>
-              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>West</h3>
+              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>{data[2].lastname} </h3>
          
             </div>
              
               <div className="input-group  mb-2">
               <h5 className=" text-center w-100 text-secondary  d-flex justify-content-start " style={{  borderRadius: '30px' }}>Email</h5>
-              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>Adamwest@gmail.com</h3>
+              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>{data[2].authUsername} </h3>
           
             </div>
               
@@ -366,6 +328,9 @@ style={{    position: 'relative', backgroundColor: "#E8DFDA" , background:"#E8DF
 </Col>
 
   
+       </Row>
+       <Row>
+     
        </Row>
       </Container>
    

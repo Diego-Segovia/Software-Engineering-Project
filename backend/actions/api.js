@@ -20,7 +20,18 @@ const generalBookInfoQuery = {
   ],
 };
 
-// Retrieve all books from database
+const userProfileInfoQuery = {
+  attributes: [
+    "firstname",
+    "lastname",
+    "userRole",
+    "userimage",
+    "authusername"
+  ]
+
+};
+
+// Retrieve all books from database 
 const getBooks = async (req, res) => {
   const data = await db.Book.findAll(generalBookInfoQuery);
   const booksJSON = data.map((book) => book.toJSON());
@@ -58,8 +69,41 @@ const createLoan = async (req, res) => {
   }
 };
 
+// Retrieve a users from database
+const getUsers = async (req, res) => {
+  const data = await db.User.findAll(userProfileInfoQuery);
+  
+  const usersJSON = data.map((user) => user.toJSON());
+
+  res.json(usersJSON);
+
+  console.log("Users sent!");
+};
+
+const getUserById = async (req, res) => {
+  const authUsername = req.params.authusername;
+
+  const user = await db.User.findOne({
+    where:{authusername: authUsername}, 
+    ...userProfileInfoQuery,
+  });
+
+  if(user){
+    res.json(user.toJSON());
+    console.log(`yay user: ${authUsername} was found!`)
+  }else{
+    res.status(400).json({error: error.message});
+    console.log("error user not found!")
+
+  }
+};
+
+
+
 module.exports = {
   getBooks,
   getBookById,
   createLoan,
+  getUsers,
+  getUserById,
 };

@@ -6,6 +6,7 @@ const db = require("./models");
 
 const booksRoutes = require("./routes/books-routes");
 const loanRoutes = require("./routes/loans-routes");
+const userRoutes = require("./routes/users-routes");
 const app = express();
 
 app.use(bodyParser.json());
