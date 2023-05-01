@@ -71,8 +71,31 @@ const signUpUser = async (req, res, next) => {
 };
 
 const loginUser = async (req, res, next) => {
+  const { username, password } = req.body;
   try {
-  } catch (error) {}
+    const user = await db.Users.findOne({
+      where: { authusername: username },
+    });
+
+    if (!user) {
+      res.status(404).json({ error: "User not found!" });
+      console.log("User not found!");
+      return;
+    }
+
+    if (user.authpassword !== password) {
+      res.status(401).json({ error: "Incorrect password!" });
+      console.log("Incorrect password!");
+      return;
+    }
+
+    res.status(200).json(user);
+    console.log("User found.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching user.");
+    console.log(error);
+  }
 };
 
 const getUsers = async (req, res, next) => {
