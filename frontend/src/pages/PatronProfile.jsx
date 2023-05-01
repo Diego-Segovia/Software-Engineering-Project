@@ -56,7 +56,7 @@ const PatronProfile = () => {
               ></div>
             </Col>
             <Col md={6} className="p-3">
-              <Form>
+              <Form className="me-5">
                 <Form.Group>
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
