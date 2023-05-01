@@ -12,7 +12,9 @@ const SettingsPage = () => {
   };
 
   const handleLogout = () => {
+    auth.setUser({});
     auth.logout();
+    auth.setAsLibrarian(false);
     navigateTo("/");
   };
 
