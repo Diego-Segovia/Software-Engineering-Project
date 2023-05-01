@@ -1,11 +1,20 @@
-import React from "react";
+import { useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import LoginModal from "./LoginModal";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../utils/auth-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBookOpen, faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faBookOpen,
+  faGear,
+  faUser,
+  faTablet,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
+  const auth = useContext(AuthContext);
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <div className="container w-25">
@@ -38,17 +47,42 @@ const NavBar = () => {
               <FontAwesomeIcon className="mx-auto" icon={faBookOpen} /> Catalog
             </Link>
           </Nav.Link>
-          <Nav.Link>
-            <LoginModal />
-          </Nav.Link>
-          <Nav.Link>
-            <Link
-              to="/settings"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <FontAwesomeIcon className="mx-auto" icon={faGear} /> Settings
-            </Link>
-          </Nav.Link>
+          {!auth.isLoggedIn && (
+            <Nav.Link>
+              <LoginModal />
+            </Nav.Link>
+          )}
+          {auth.isLoggedIn && auth.isLibrarian && (
+            <Nav.Link>
+              <Link
+                to="/librarianDashboard"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon className="mx-auto" icon={faTablet} />{" "}
+                Dashboard
+              </Link>
+            </Nav.Link>
+          )}
+          {auth.isLoggedIn && (
+            <Nav.Link>
+              <Link
+                to="/patron-profile"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon className="mx-auto" icon={faUser} /> Profile
+              </Link>
+            </Nav.Link>
+          )}
+          {auth.isLoggedIn && (
+            <Nav.Link>
+              <Link
+                to="/settings"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                <FontAwesomeIcon className="mx-auto" icon={faGear} /> Settings
+              </Link>
+            </Nav.Link>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

@@ -11,9 +11,9 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/api", booksRoutes);
-app.use("/api", loanRoutes);
-app.use("/api", usersRoutes);
+app.use("/api/books", booksRoutes);
+app.use("/api/loans", loanRoutes);
+app.use("/api/users", usersRoutes);
 
 const startServer = async () => {
   await db.sequelize.sync();
