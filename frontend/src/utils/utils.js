@@ -66,7 +66,7 @@ export async function sendLoanRequest(data) {
 export async function createUser(data) {
   try {
     // Send a POST request to the signup API endpoint with the given data as a JSON payload
-    const response = await fetch("http://localhost:3005/api/signup", {
+    const response = await fetch("http://localhost:3005/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -91,5 +91,24 @@ export async function createUser(data) {
 
     // Return 'false' to indicate the request failed
     return false;
+  }
+}
+
+export async function loginUser(data) {
+  try {
+    const response = await fetch("http://localhost:3005/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) throw new Error("Login failed");
+    const responseData = await response.json();
+
+    return responseData;
+  } catch (error) {
+    console.error("Login error:", error);
   }
 }

@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { fetchBookById, sendLoanRequest } from "../utils/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AuthContext } from "../utils/auth-context";
 import {
   faCalendarDays,
   faBuilding,
@@ -11,6 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function DetailBookPage() {
+  const auth = useContext(AuthContext);
+
   // Get the route parameters as an object (e.g., bookId)
   const params = useParams();
 
@@ -72,13 +75,33 @@ function DetailBookPage() {
               alt=""
               className="img-fluid rounded m-3"
             />
-            <button
-              type="button"
-              class="btn btn-dark btn-lg mb-2"
-              onClick={onClickHandler}
-            >
-              Check Out
-            </button>
+            {auth.isLoggedIn && !auth.isLibrarian && (
+              <button
+                type="button"
+                class="btn btn-dark btn-lg mb-2"
+                onClick={onClickHandler}
+              >
+                Check Out
+              </button>
+            )}
+            {auth.isLoggedIn && auth.isLibrarian && (
+              <>
+                <button
+                  type="button"
+                  class="btn btn-success btn-lg mb-2 me-3"
+                  onClick={onClickHandler}
+                >
+                  Edit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger btn-lg mb-2"
+                  onClick={onClickHandler}
+                >
+                  Delete
+                </button>
+              </>
+            )}
             {visible && (
               <div class="d-flex justify-content-center align-items-center center-wrapper">
                 <div
