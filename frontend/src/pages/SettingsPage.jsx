@@ -1,13 +1,33 @@
-import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../utils/auth-context";
 import { Container, Card, Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const SettingsPage = () => {
-    const onClickHandler = (e) => {
-        e.preventDefault()
-    }
+  const auth = useContext(AuthContext);
+  const navigateTo = useNavigate();
+
+  const onClickHandler = (e) => {
+    e.preventDefault();
+  };
+
+  const handleLogout = () => {
+    auth.logout();
+    navigateTo("/");
+  };
+
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ height: '90vh' }}>
-      <Card style={{ width: "30rem", backgroundColor: "#f8f9fa" , minHeight : "35vh"}}>
+    <Container
+      className="d-flex justify-content-center align-items-center"
+      style={{ height: "90vh" }}
+    >
+      <Card
+        style={{
+          width: "30rem",
+          backgroundColor: "#f8f9fa",
+          minHeight: "35vh",
+        }}
+      >
         <Card.Header className="text-center">
           <h2>Settings</h2>
         </Card.Header>
@@ -27,15 +47,23 @@ const SettingsPage = () => {
                 <option>Dark Mode</option>
               </Form.Control>
             </Form.Group>
-            <div className="d-flex justify-content-center" style={{ marginTop: "20px" }}>
-              <Button variant="primary" type="submit" onClick={onClickHandler} style={{ backgroundColor : "#36454F", borderColor : "36454F"}}>
+            <div
+              className="d-flex justify-content-center"
+              style={{ marginTop: "20px" }}
+            >
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={onClickHandler}
+                style={{ backgroundColor: "#36454F", borderColor: "36454F" }}
+              >
                 Save Changes
               </Button>
             </div>
           </Form>
         </Card.Body>
         <Card.Footer className="text-center">
-          <Button variant="danger" onClick={() => console.log("Logout clicked")}>
+          <Button variant="danger" onClick={handleLogout}>
             Log Out
           </Button>
         </Card.Footer>
