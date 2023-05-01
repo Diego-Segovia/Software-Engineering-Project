@@ -40,11 +40,18 @@ const SettingsPage = () => {
                 <option>Spanish</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group style={{ marginTop: "5px" }}>
               <Form.Label>Appearance</Form.Label>
               <Form.Control as="select">
                 <option>Light Mode</option>
                 <option>Dark Mode</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group style={{ marginTop: "5px" }}>
+              <Form.Label>Notifications</Form.Label>
+              <Form.Control as="select">
+                <option>Off</option>
+                <option>On</option>
               </Form.Control>
             </Form.Group>
             <div
