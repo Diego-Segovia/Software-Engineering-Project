@@ -111,7 +111,7 @@ style={{    position: 'relative', backgroundColor: "#E8DFDA" , background:"#E8DF
              
               <div className="input-group mb-2 " style={{}}>
               <h5 className=" text-center w-100 text-secondary  d-flex justify-content-start " style={{  borderRadius: '30px' }}>Last Name</h5>
-              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>{data[2].lastname} </h3>
+              <h3 className=" text-center w-100 text-dark  d-flex justify-content-start " style={{  borderRadius: '30px' }}>West</h3>
          
             </div>
              
