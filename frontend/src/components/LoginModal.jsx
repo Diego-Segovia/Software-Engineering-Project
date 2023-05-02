@@ -30,9 +30,10 @@ const LoginModal = () => {
     try {
       const responseData = await loginUser(data);
 
-      alert(JSON.stringify(responseData));
-
-      if (responseData.error) throw new Error("Login failed");
+      if (responseData.error) {
+        alert(JSON.stringify(responseData.error));
+        throw new Error("Login failed");
+      }
 
       if (responseData.userrole == "Librarian") {
         alert("Only for Patron Login");
@@ -59,9 +60,10 @@ const LoginModal = () => {
     try {
       const responseData = await loginUser(data);
 
-      alert(JSON.stringify(responseData));
-
-      if (responseData.error) throw new Error("Login failed");
+      if (responseData.error) {
+        alert(JSON.stringify(responseData.error));
+        throw new Error("Login failed");
+      }
 
       if (responseData.userrole == "Library_Patron") {
         alert("Only for Librarian login!");
