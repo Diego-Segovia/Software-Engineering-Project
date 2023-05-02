@@ -1,13 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {getUsers, getUserById} = require("../actions");
+const { signUpUser, loginUser, getUsers, getUserById } = require("../actions");
 
-router.use("/users", (req, res, next) => { 
-    getUsers(req, res);
-});
+router.get("/:userId", getUserById);
 
-router.use("/users/:authUsername",(req, res, next) =>{
-    getUserById(req, res);
-});
+router.get("/", getUsers);
+
+router.post("/signup", signUpUser);
+
+router.post("/login", loginUser);
 
 module.exports = router;

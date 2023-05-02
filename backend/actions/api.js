@@ -20,19 +20,8 @@ const generalBookInfoQuery = {
   ],
 };
 
-const userProfileInfoQuery = {
-  attributes: [
-    "firstname",
-    "lastname",
-    "userRole",
-    "userimage",
-    "authusername"
-  ]
-
-};
-
-// Retrieve all books from database 
-const getBooks = async (req, res) => {
+// Retrieve all books from database
+const getBooks = async (req, res, next) => {
   const data = await db.Book.findAll(generalBookInfoQuery);
   const booksJSON = data.map((book) => book.toJSON());
   res.json(booksJSON);
@@ -40,7 +29,7 @@ const getBooks = async (req, res) => {
 };
 
 // Retrieve a specific book based on ID
-const getBookById = async (req, res) => {
+const getBookById = async (req, res, next) => {
   const bookId = req.params.bookId;
 
   const book = await db.Book.findOne({
@@ -58,7 +47,7 @@ const getBookById = async (req, res) => {
 };
 
 // Create a book loan in database
-const createLoan = async (req, res) => {
+const createLoan = async (req, res, next) => {
   try {
     const loan = await db.Loan.create(req.body);
     console.log("Loan created successfully.");
@@ -69,41 +58,62 @@ const createLoan = async (req, res) => {
   }
 };
 
-// Retrieve a users from database
-const getUsers = async (req, res) => {
-  const data = await db.User.findAll(userProfileInfoQuery);
-  
-  const usersJSON = data.map((user) => user.toJSON());
-
-  res.json(usersJSON);
-
-  console.log("Users sent!");
-};
-
-const getUserById = async (req, res) => {
-  const authUsername = req.params.authusername;
-
-  const user = await db.User.findOne({
-    where:{authusername: authUsername}, 
-    ...userProfileInfoQuery,
-  });
-
-  if(user){
-    res.json(user.toJSON());
-    console.log(`yay user: ${authUsername} was found!`)
-  }else{
-    res.status(400).json({error: error.message});
-    console.log("error user not found!")
-
+const signUpUser = async (req, res, next) => {
+  try {
+    const user = await db.Users.create(req.body);
+    console.log("User created successfully.");
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+    console.log("User creation error!");
+    console.log(error);
   }
 };
 
+const loginUser = async (req, res, next) => {
+  const { username, password } = req.body;
+  try {
+    const user = await db.Users.findOne({
+      where: { authusername: username },
+    });
 
+    if (!user) {
+      res.status(404).json({ error: "User not found!" });
+      console.log("User not found!");
+      return;
+    }
+
+    if (user.authpassword !== password) {
+      res.status(401).json({ error: "Incorrect password!" });
+      console.log("Incorrect password!");
+      return;
+    }
+
+    res.status(200).json(user);
+    console.log("User found.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching user.");
+    console.log(error);
+  }
+};
+
+const getUsers = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
+
+const getUserById = async (req, res, next) => {
+  try {
+  } catch (error) {}
+};
 
 module.exports = {
   getBooks,
   getBookById,
   createLoan,
+  signUpUser,
+  loginUser,
   getUsers,
   getUserById,
 };
