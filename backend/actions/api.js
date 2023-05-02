@@ -98,6 +98,26 @@ const loginUser = async (req, res, next) => {
   }
 };
 
+  const updateUserData = async (req, res, next) => {
+    const userData = req.body;
+    try {
+      const user = await db.Users.findByPk(userData.userid);
+      if (!user) {
+        throw new Error(`User with ID ${userData.userid} not found`);
+      }
+      // Update the user data
+      await user.update(userData);
+
+      // Save the changes
+      await user.save();
+      console.log(`User with ID ${userData.userid} updated successfully`);
+      res.status(200).json(user);
+    } catch (error) {
+      console.error(`Error updating user: ${error.message}`);      
+    }
+  };
+
+
 const getUsers = async (req, res, next) => {
   try {
   } catch (error) {}
@@ -116,4 +136,5 @@ module.exports = {
   loginUser,
   getUsers,
   getUserById,
+  updateUserData,
 };
