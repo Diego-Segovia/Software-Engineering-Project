@@ -12,33 +12,6 @@ import Tab from 'react-bootstrap/Tab';
 
 
 
-const data = [
-    {
-      id: 1,
-      firstname: "John",
-      lastname: "Neil deGrasse Tyson",
-      userimage:
-        "https://m.media-amazon.com/images/I/51wSvLJG-rS._SX306_BO1,204,203,200_.jpg",
-        authUsername: "kenny@gmail.com",
-    },
-    {
-      id: 2,
-      firstname: "Ethan",
-      lastname: "Stephen Hawking",
-      userimage:
-        "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg",
-        authUsername: "wilson@gmail.com",
-    },
-    {
-      id: 3,
-      firstname: "Cosmos",
-      lastname: "Carl Sagan",
-      userimage:
-        "https://m.media-amazon.com/images/I/51IcVjsJlDL._SX322_BO1,204,203,200_.jpg",
-        authUsername: "cookie@gmail.com",
-    },
-    
-  ];
 
 function LibrarianProfilePage(){
 
