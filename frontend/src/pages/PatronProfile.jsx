@@ -7,6 +7,7 @@ const PatronProfile = () => {
   const [editMode, setEditMode] = useState(false);
 
   const [fields, setFields] = useState({
+    userid: auth.userData.userid,
     firstName: auth.userData.firstname,
     lastName: auth.userData.lastname,
     username: auth.userData.authusername,
@@ -22,6 +23,7 @@ const PatronProfile = () => {
   const cancelEditMode = () => {
     setEditMode(false);
     setFields({
+      userid: auth.userData.userid,
       firstName: auth.userData.firstname,
       lastName: auth.userData.lastname,
       username: auth.userData.authusername,
@@ -33,6 +35,7 @@ const PatronProfile = () => {
 
   useEffect(() => {
     setFields({
+      userid: auth.userData.userid,
       firstName: auth.userData.firstname,
       lastName: auth.userData.lastname,
       username: auth.userData.authusername,
@@ -46,19 +49,39 @@ const PatronProfile = () => {
     setFields({ ...fields, [e.target.name]: e.target.value });
   };
 
+  const lowercaseFields = Object.fromEntries(
+    Object.entries(fields).map(([key, value]) => {
+      let newKey = key.toLowerCase();
+      if (newKey === 'username') newKey = 'authusername';
+      if (newKey === 'password') newKey = 'authpassword';
+      return [newKey, value];
+    })
+  );
+
   const handleSaveChanges = async () => {
-    try {
-      const response = await fetch("http://localhost:3005/api/users/updateUser",{
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-    } catch (error) {
-      
+  try {
+    const response = await fetch("http://localhost:3005/api/users/updateUser", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(lowercaseFields),
+    });
+
+    // Handle response and update the auth context if needed
+    if (response.ok) {
+      const updatedUserData = await response.json();
+      auth.setUser(updatedUserData);
+      setEditMode(false);
+    } else {
+      // Handle error
+      console.error("Error updating user");
     }
-  };
+  } catch (error) {
+    // Handle error
+    console.error(`Error updating user: ${error.message}`);
+  }
+};
 
   return (
     <Container>
@@ -148,28 +171,31 @@ const PatronProfile = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-center mt-3">
-                {editMode ? (
-                <>
-                  <Button
-                    variant="success"
-                    onClick={handleSaveChanges}
-                    style={{ marginRight: "30px" }}
-                  >
-                    Save Changes
-                  </Button>
-                  <Button variant="danger" onClick={cancelEditMode}>
-                    Cancel
-                  </Button>
-                </>
-              ) : (
-                <Button
-                  variant="primary"
-                  onClick={enterEditMode}
-                  style={{ marginRight: "30px" }}
-                >
-                  Edit
-                </Button>
-              )}
+                  {editMode ? (
+                    <>
+                      <Button
+                        variant="success"
+                        onClick={() => {
+                          handleSaveChanges();
+                          setEditMode(false);
+                        }}
+                        style={{ marginRight: "30px" }}
+                      >
+                        Save Changes
+                      </Button>
+                      <Button variant="danger" onClick={cancelEditMode}>
+                        Cancel
+                      </Button>
+                    </>
+                  ) : (
+                    <Button
+                      variant="primary"
+                      onClick={enterEditMode}
+                      style={{ marginRight: "30px" }}
+                    >
+                      Edit
+                    </Button>
+                  )}
                 </div>
               </Form>
             </Col>
