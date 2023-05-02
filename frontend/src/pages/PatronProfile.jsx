@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../utils/auth-context";
 
@@ -7,25 +7,26 @@ const PatronProfile = () => {
   const [editMode, setEditMode] = useState(false);
 
   const [fields, setFields] = useState({
-    firstName: "Bill",
-    lastName: "Clinton",
-    username: "bill_clinton",
-    password: "********",
+    firstName: auth.userData.firstname,
+    lastName: auth.userData.lastname,
+    username: auth.userData.authusername,
+    password: auth.userData.authpassword,
+    image: auth.userData.userimage,
     membership: "Active",
   });
 
-  const defaultFields = {
-    firstName: "Bill",
-    lastName: "Clinton",
-    username: "bill_clinton",
-    password: "********",
-    membership: "Active",
-  };
+  useEffect(() => {
+    setFields({
+      firstName: auth.userData.firstname,
+      lastName: auth.userData.lastname,
+      username: auth.userData.authusername,
+      password: auth.userData.authpassword,
+      image: auth.userData.userimage,
+      membership: "Active",
+    });
+  }, [auth.userData]);
 
-  const toggleEditMode = () => {
-    setEditMode(!editMode);
-    if (editMode) setFields(defaultFields);
-  };
+  const toggleEditMode = () => setEditMode(!editMode);
 
   const handleChange = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
@@ -43,11 +44,11 @@ const PatronProfile = () => {
             <Col md={5} className="p-3">
               <div className="d-flex flex-column h-100 justify-content-center">
                 <h3 className="text-center font-weight-bold">
-                  {auth.userData.firstname} {auth.userData.lastname}
+                  {fields.firstName} {fields.lastName}
                 </h3>
                 <div className="d-flex justify-content-center">
                   <img
-                    src={auth.userData.userimage}
+                    src={fields.image}
                     alt="User"
                     style={{
                       width: "90%",
@@ -74,7 +75,7 @@ const PatronProfile = () => {
                   <Form.Control
                     type="text"
                     name="firstName"
-                    value={auth.userData.firstname}
+                    value={fields.firstName}
                     onChange={handleChange}
                     readOnly={!editMode}
                   />
@@ -84,7 +85,7 @@ const PatronProfile = () => {
                   <Form.Control
                     type="text"
                     name="lastName"
-                    value={auth.userData.lastname}
+                    value={fields.lastName}
                     onChange={handleChange}
                     readOnly={!editMode}
                   />
@@ -94,7 +95,7 @@ const PatronProfile = () => {
                   <Form.Control
                     type="text"
                     name="username"
-                    value={auth.userData.authusername}
+                    value={fields.username}
                     onChange={handleChange}
                     readOnly={!editMode}
                   />
@@ -104,7 +105,7 @@ const PatronProfile = () => {
                   <Form.Control
                     type="password"
                     name="password"
-                    value={auth.userData.authpassword}
+                    value={fields.password}
                     onChange={handleChange}
                     readOnly={!editMode}
                   />
