@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, Form, Col, Tabs, Tab } from "react-bootstrap";
 import SearchBar from "../components/SearchBar";
 import TableComponent from "../components/TableComponent";
+import { fetchBooks } from "../utils/utils";
 
 function LibrarianDashboardPage() {
   //Test Data, Delete Later
@@ -48,41 +49,6 @@ function LibrarianDashboardPage() {
     },
   ];
 
-  const books = [
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-  ];
-
   const users = [
     {
       UserID: 1,
@@ -113,6 +79,13 @@ function LibrarianDashboardPage() {
     },
   ];
 
+	// Data from database
+	const [book, setBooks] = useState([]);
+	
+	useEffect(() => {
+		fetchBooks(setBooks);
+	}, []);
+
   //Modals
   const [addShow, addSetShow] = useState(false);
   const addHandleClose = () => addSetShow(false);
@@ -123,7 +96,6 @@ function LibrarianDashboardPage() {
   const editHandleShow = () => editSetShow(true);
 
   //Book Section
-  const [book, setBook] = useState([]);
 
   const [addBook, setAddBook] = useState({
     ISBN: "",
@@ -269,7 +241,7 @@ function LibrarianDashboardPage() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <TableComponent data={data} />
+          <TableComponent data={book} />
         </Tab>
         <Tab eventKey="users" title="Users">
           {" "}
