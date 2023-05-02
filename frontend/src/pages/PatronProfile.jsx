@@ -15,6 +15,22 @@ const PatronProfile = () => {
     membership: "Active",
   });
 
+  const enterEditMode = () => {
+    setEditMode(true);
+  };
+  
+  const cancelEditMode = () => {
+    setEditMode(false);
+    setFields({
+      firstName: auth.userData.firstname,
+      lastName: auth.userData.lastname,
+      username: auth.userData.authusername,
+      password: auth.userData.authpassword,
+      image: auth.userData.userimage,
+      membership: "Active",
+    });
+  };
+
   useEffect(() => {
     setFields({
       firstName: auth.userData.firstname,
@@ -26,10 +42,22 @@ const PatronProfile = () => {
     });
   }, [auth.userData]);
 
-  const toggleEditMode = () => setEditMode(!editMode);
-
   const handleChange = (e) => {
     setFields({ ...fields, [e.target.name]: e.target.value });
+  };
+
+  const handleSaveChanges = async () => {
+    try {
+      const response = await fetch("http://localhost:3005/api/users/updateUser",{
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+    } catch (error) {
+      
+    }
   };
 
   return (
@@ -120,23 +148,28 @@ const PatronProfile = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-center mt-3">
-                  {editMode ? (
-                    <Button
-                      variant="success"
-                      onClick={toggleEditMode}
-                      style={{ marginRight: "30px" }}
-                    >
-                      Save Changes
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="primary"
-                      onClick={toggleEditMode}
-                      style={{ marginRight: "30px" }}
-                    >
-                      Edit
-                    </Button>
-                  )}
+                {editMode ? (
+                <>
+                  <Button
+                    variant="success"
+                    onClick={handleSaveChanges}
+                    style={{ marginRight: "30px" }}
+                  >
+                    Save Changes
+                  </Button>
+                  <Button variant="danger" onClick={cancelEditMode}>
+                    Cancel
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  variant="primary"
+                  onClick={enterEditMode}
+                  style={{ marginRight: "30px" }}
+                >
+                  Edit
+                </Button>
+              )}
                 </div>
               </Form>
             </Col>
