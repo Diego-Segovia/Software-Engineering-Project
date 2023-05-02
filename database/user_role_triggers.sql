@@ -1,4 +1,4 @@
--- The following triggers are utilized to validate the 'userRole' value in the 'users' table upon the creation/insertion of a new user. 
+-- The following triggers are utilized to validate the 'userRole' value in the librarian and library patron table. 
 -- The triggers use the 'userRole' value to add the user into their respective table, acting as a safety mechanism.
 
 -- Trigger function for Library_Patron
