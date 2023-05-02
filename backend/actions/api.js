@@ -106,10 +106,7 @@ const loginUser = async (req, res, next) => {
       if (!user) {
         throw new Error(`User with ID ${userData.userid} not found`);
       }
-      // Update the user data
       await user.update(userData);
-      
-      // Save the changes
       await user.save();
       console.log(`User with ID ${userData.userid} updated successfully`);
       res.status(200).json(user);
