@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../utils/auth-context";
+import FineCard from '../components/Fine';
+
 
 const PatronProfile = () => {
   const auth = useContext(AuthContext);
@@ -115,11 +117,10 @@ const PatronProfile = () => {
                 style={{
                   borderLeft: "2px solid #d0d0d0",
                   height: "100%",
-                  marginLeft: "-1px",
                 }}
               ></div>
             </Col>
-            <Col md={6} className="p-3">
+            <Col md={6} className="p-3" style={{maxWidth: "700px", marginLeft: "-2vh"}}>
               <Form className="me-5">
                 <Form.Group>
                   <Form.Label>First Name</Form.Label>
@@ -201,6 +202,9 @@ const PatronProfile = () => {
             </Col>
           </Row>
         </Card>
+        <div style={{ marginLeft: '2rem' }}>
+          <FineCard initialFineAmount={20} />
+      </div>
       </div>
     </Container>
   );
