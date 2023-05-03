@@ -63,7 +63,7 @@ const NavBar = () => {
               </Link>
             </Nav.Link>
           )}
-          {auth.isLoggedIn && !auth.isLibrarian && (
+          {auth.isLoggedIn && (
             <Nav.Link>
               <Link
                 to="/patron-profile"
