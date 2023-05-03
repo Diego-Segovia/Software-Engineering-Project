@@ -11,6 +11,7 @@ const FineCard = ({ initialFineAmount }) => {
     expirationDate: '',
     cvv: '',
   });
+  
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
@@ -56,14 +57,13 @@ const FineCard = ({ initialFineAmount }) => {
         </Card.Text>
         {fineAmount > 0 && (
           <>
-            <Button variant="link" onClick={() => setShowForm(!showForm)} style={{marginTop: "-1vh"}}>
-              {showForm ? '' : 'Pay Fine'}
-            </Button>
+          {!showForm ?   <button className='btn btn-success' onClick={() => {setShowForm(!showForm)}}>Pay Fine</button> : '' }
+           
             {showForm && (
               <>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form>
-                  <Form.Group style={{marginTop: "-3vh"}}>
+                  <Form.Group className='mt-3'>
                     <Form.Label>Name on Card</Form.Label>
                     <Form.Control
                       type="text"
@@ -106,7 +106,7 @@ const FineCard = ({ initialFineAmount }) => {
                       </Form.Group>
                     </Col>
                   </Row>
-                  <Button variant="primary" className="mt-3" onClick={handlePayFine}>
+                  <Button variant="success" className="mt-3" onClick={handlePayFine}>
                     Pay Fine
                   </Button>
                   <Button variant="secondary" className="mt-3 ms-3" onClick={handleClose}>
