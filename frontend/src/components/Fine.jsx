@@ -57,7 +57,7 @@ const FineCard = ({ initialFineAmount }) => {
         </Card.Text>
         {fineAmount > 0 && (
           <>
-          {!showForm ?   <button className='btn btn-success' onClick={() => {setShowForm(!showForm)}}>Pay Fine</button> : '' }
+          {!showForm ?   <button className='btn btn-danger' onClick={() => {setShowForm(!showForm)}}>Expand</button> : '' }
            
             {showForm && (
               <>
