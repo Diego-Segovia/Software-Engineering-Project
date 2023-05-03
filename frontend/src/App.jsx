@@ -11,6 +11,8 @@ import SettingsPage from "./pages/SettingsPage";
 import PatronProfile from "./pages/PatronProfile";
 import { AuthContext } from "./utils/auth-context";
 import { useState, useCallback } from "react";
+import TestProfile from "./pages/TestProfile";
+import PaymentPage from "./pages/PaymentPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,8 @@ const router = createBrowserRouter([
       { path: "/patron-signup", element: <PatronSignUp /> },
       { path: "/staff-signup", element: <LibrarianSignUp /> },
       { path: "/settings", element: <SettingsPage /> },
-      { path: "/patron-profile", element: <PatronProfile /> },
+      { path: "/patron-profile", element: <TestProfile /> },
+      { path: "/payment/:fineID/:fineamt", element: <PaymentPage /> },
     ],
   },
 ]);
