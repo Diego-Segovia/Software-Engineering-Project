@@ -111,3 +111,72 @@ export async function loginUser(data) {
     console.error("Login error:", error);
   }
 }
+
+export async function fetchPatrons(setPatrons) {
+  try {
+    // Fetch patron data from the API
+    const response = await fetch("http://localhost:3005/api/users");
+
+    // Parse the JSON data from the response
+    const data = await response.json();
+
+    const allPatrons = data.map((patron) => {
+      return {
+        "User ID": patron.userid,
+        "First Name": patron.firstname,
+        "Last Name": patron.lastname,
+        Username: patron.authusername,
+      };
+    });
+
+    // Update the books state with the fetched data
+    setPatrons(allPatrons);
+  } catch (error) {
+    console.log("Error fetching patrons: ", error);
+  }
+}
+
+export async function getLoans(setLoans, setCheckoutRequests) {
+  try {
+    // Fetch patron data from the API
+    const response = await fetch("http://localhost:3005/api/loans");
+
+    // Parse the JSON data from the response
+    const data = await response.json();
+    const loans = [];
+    const checkoutRequests = [];
+
+    data.map((loan) => {
+      let fineData = { fineamt: 0, finedesc: "" };
+      if (loan.fine !== null) fineData = loan.fine;
+      if (loan.loan_status.statusdesc === "Pending") {
+        checkoutRequests.push({
+          "Loan ID": loan.loanid,
+          "Book Title": loan.book.booktitle,
+          ISBN: loan.book.isbn,
+          Copies: loan.book.numcopies,
+          "Patron Name": loan.user.firstname + " " + loan.user.lastname,
+          Username: loan.user.authusername,
+          "Loan Status": loan.loan_status.statusdesc,
+        });
+      } else {
+        loans.push({
+          "Loan ID": loan.loanid,
+          "Book Title": loan.book.booktitle,
+          ISBN: loan.book.isbn,
+          Copies: loan.book.numcopies,
+          "Patron Name": loan.user.firstname + " " + loan.user.lastname,
+          Username: loan.user.authusername,
+          "Loan Status": loan.loan_status.statusdesc,
+          Fine: "$" + fineData.fineamt,
+          "Fine Description": fineData.finedesc,
+        });
+      }
+    });
+
+    setLoans(loans);
+    setCheckoutRequests(checkoutRequests);
+  } catch (error) {
+    console.log("Error fetching loans: ", error);
+  }
+}
