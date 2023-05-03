@@ -2,8 +2,71 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, Form, Col, Tabs, Tab } from "react-bootstrap";
 import SearchBar from "../components/SearchBar";
 import TableComponent from "../components/TableComponent";
+import { fetchPatrons, getLoans } from "../utils/utils";
 
 function LibrarianDashboardPage() {
+  const [patrons, setPatrons] = useState();
+  const [loans, setLoans] = useState();
+  const [checkoutRequests, setCheckoutRequests] = useState();
+
+  useEffect(() => {
+    fetchPatrons(setPatrons);
+  }, [fetchPatrons]);
+
+  useEffect(() => {
+    getLoans(setLoans, setCheckoutRequests);
+  }, [getLoans]);
+
+  const onRefreshHandler = () => fetchPatrons(setPatrons);
+
+  //Modals
+  const [addShow, addSetShow] = useState(false);
+  const addHandleClose = () => addSetShow(false);
+  const addHandleShow = () => addSetShow(true);
+
+  const [editShow, editSetShow] = useState(false);
+  const editHandleClose = () => editSetShow(false);
+  const editHandleShow = () => editSetShow(true);
+
+  //Book Section
+  const [book, setBook] = useState([]);
+
+  const [addBook, setAddBook] = useState({
+    ISBN: "",
+    bookTitle: "",
+    publisherID: 0,
+    genreID: 0,
+    numCopies: 0,
+    bookImage: "",
+  });
+
+  const [editBookID, setBookID] = useState(null);
+
+  const [editBookData, setEditBookData] = useState({
+    ISBN: "",
+    bookTitle: "",
+    publisherID: 0,
+    genreID: 0,
+    numCopies: 0,
+    bookImage: "",
+  });
+
+  const handleAddPost = (e) => {
+    e.preventDefault();
+
+    const newBook = {
+      ISBN: addBook.ISBN,
+      bookTitle: addBook.bookTitle,
+      publisherID: addBook.publisherID,
+      genreID: addBook.genreID,
+      numCopies: addBook.numCopies,
+      bookImage: addBook.bookImage,
+    };
+
+    const newBooks = [...books, newBook];
+    setBooks(newBooks);
+  };
+
   //Test Data, Delete Later
   const data = [
     {
@@ -83,83 +146,7 @@ function LibrarianDashboardPage() {
     },
   ];
 
-  const users = [
-    {
-      UserID: 1,
-      "Last Name": "Martinez",
-      "First Name": "Carlos",
-      Email: "example@mail.com",
-    },
-  ];
-
-  const requests = [
-    {
-      UserID: 1,
-      "Last Name": "Martinez",
-      "First Name": "Carlos",
-      Book: "Title",
-      Status: "Pending",
-    },
-  ];
-
-  const loans = [
-    {
-      UserID: 1,
-      "Last Name": "Martinez",
-      "First Name": "Carlos",
-      "Return Date": "mm/dd/yyyy",
-      "Fine Amount": "$0.00",
-      Status: "Loaned",
-    },
-  ];
-
-  //Modals
-  const [addShow, addSetShow] = useState(false);
-  const addHandleClose = () => addSetShow(false);
-  const addHandleShow = () => addSetShow(true);
-
-  const [editShow, editSetShow] = useState(false);
-  const editHandleClose = () => editSetShow(false);
-  const editHandleShow = () => editSetShow(true);
-
-  //Book Section
-  const [book, setBook] = useState([]);
-
-  const [addBook, setAddBook] = useState({
-    ISBN: "",
-    bookTitle: "",
-    publisherID: 0,
-    genreID: 0,
-    numCopies: 0,
-    bookImage: "",
-  });
-
-  const [editBookID, setBookID] = useState(null);
-
-  const [editBookData, setEditBookData] = useState({
-    ISBN: "",
-    bookTitle: "",
-    publisherID: 0,
-    genreID: 0,
-    numCopies: 0,
-    bookImage: "",
-  });
-
-  const handleAddPost = (e) => {
-    e.preventDefault();
-
-    const newBook = {
-      ISBN: addBook.ISBN,
-      bookTitle: addBook.bookTitle,
-      publisherID: addBook.publisherID,
-      genreID: addBook.genreID,
-      numCopies: addBook.numCopies,
-      bookImage: addBook.bookImage,
-    };
-
-    const newBooks = [...books, newBook];
-    setBooks(newBooks);
-  };
+  if (!patrons || !loans || !checkoutRequests) return <div></div>;
 
   return (
     <div className="LibrarianDashboard">
@@ -269,16 +256,19 @@ function LibrarianDashboardPage() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <TableComponent data={data} />
+          <TableComponent data={books} />
         </Tab>
         <Tab eventKey="users" title="Users">
           {" "}
           {/* Users Section*/}
           <SearchBar />
           <div className="Options text-center">
+            <Button className="me-2 btn-primary" onClick={onRefreshHandler}>
+              Refresh
+            </Button>
             <Button className="me-2 btn-danger">Delete</Button>
           </div>
-          <TableComponent data={users} />
+          <TableComponent data={patrons} />
         </Tab>
         <Tab eventKey="requests" title="Requests">
           {" "}
@@ -287,7 +277,7 @@ function LibrarianDashboardPage() {
           <div className="Options text-center">
             <Button className="me-2 btn-danger">Delete</Button>
           </div>
-          <TableComponent data={requests} />
+          <TableComponent data={checkoutRequests} isRequest={true} />
         </Tab>
         <Tab eventKey="loans" title="Loans">
           {" "}
