@@ -100,12 +100,70 @@ const loginUser = async (req, res, next) => {
 
 const getUsers = async (req, res, next) => {
   try {
-  } catch (error) {}
+    const libraryPatrons = await db.Users.findAll({
+      where: {
+        userrole: "Library_Patron",
+      },
+    });
+
+    if (!libraryPatrons) {
+      res.status(404).json({ error: "No patrons found!" });
+      console.log("No patrons found!");
+      return;
+    }
+
+    res.status(200).json(libraryPatrons);
+    console.log("All users returned.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching all patrons.");
+    console.log(error);
+  }
 };
 
 const getUserById = async (req, res, next) => {
   try {
   } catch (error) {}
+};
+
+const getLoans = async (req, res, next) => {
+  try {
+    const allLoans = await db.Loan.findAll({
+      attributes: ["loanid", "loandate", "returndate"],
+      include: [
+        {
+          model: db.Book,
+          attributes: ["booktitle", "isbn", "numcopies"],
+        },
+        {
+          model: db.Users,
+          attributes: ["firstname", "lastname", "authusername"],
+        },
+        {
+          model: db.LoanStatus,
+          attributes: ["statusdesc"],
+        },
+        {
+          model: db.Fine,
+          attributes: ["finedesc", "fineamt"],
+          required: false, // FULL OUTER JOIN
+        },
+      ],
+    });
+
+    if (!allLoans) {
+      res.status(404).json({ error: "No loans found!" });
+      console.log("No loans found!");
+      return;
+    }
+
+    res.status(200).json(allLoans);
+    console.log("All loans sent.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching all loans.");
+    console.log(error);
+  }
 };
 
 module.exports = {
@@ -116,4 +174,5 @@ module.exports = {
   loginUser,
   getUsers,
   getUserById,
+  getLoans,
 };
