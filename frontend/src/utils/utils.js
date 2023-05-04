@@ -1,4 +1,4 @@
-export async function fetchBooks(setBooks) {
+export async function fetchBooks(setBooks, formatted = false) {
   try {
     console.log("Getting All Book Data...");
 
@@ -6,10 +6,30 @@ export async function fetchBooks(setBooks) {
     const response = await fetch("http://localhost:3005/api/books");
 
     // Parse the JSON data from the response
-    const data = await response.json();
+    const books = await response.json();
+
+    if (formatted) {
+      const formattedBooks = books.map((book) => {
+        return {
+          Cover: book.bookimage,
+          ISBN: book.isbn,
+          Title: book.booktitle,
+          "Author(s)":
+            book.authors[0].firstname + " " + book.authors[0].lastname,
+          Genre: book.genre.genredesc,
+          Publisher:
+            book.publisher.publishername +
+            " (" +
+            book.publisher.publishyear +
+            ")",
+          Copies: book.numcopies,
+        };
+      });
+      setBooks(formattedBooks);
+    }
 
     // Update the books state with the fetched data
-    setBooks(data);
+    if (!formatted) setBooks(books);
   } catch (error) {
     console.log("Error fetching books: ", error);
   }
@@ -168,6 +188,8 @@ export async function getLoans(setLoans, setCheckoutRequests) {
           "Patron Name": loan.user.firstname + " " + loan.user.lastname,
           Username: loan.user.authusername,
           "Loan Status": loan.loan_status.statusdesc,
+          "Checkout Date": loan.loandate,
+          "Return Date": loan.returndate,
           Fine: "$" + fineData.fineamt,
           "Fine Description": fineData.finedesc,
         });
@@ -178,5 +200,35 @@ export async function getLoans(setLoans, setCheckoutRequests) {
     setCheckoutRequests(checkoutRequests);
   } catch (error) {
     console.log("Error fetching loans: ", error);
+  }
+}
+
+export async function deleteLoan(loanID) {
+  try {
+    const response = await fetch(
+      `http://localhost:3005/api/loans/delete/${loanID}`,
+      {
+        method: "DELETE",
+      }
+    );
+    const data = await response.json();
+    console.log(JSON.stringify(data));
+  } catch (error) {
+    console.log("Error deleting loan: ", error);
+  }
+}
+
+export async function approveLoan(loanID) {
+  try {
+    const response = await fetch(
+      `http://localhost:3005/api/loans/loanOut/${loanID}`,
+      {
+        method: "PATCH",
+      }
+    );
+    const data = await response.json();
+    console.log(JSON.stringify(data));
+  } catch (error) {
+    console.log("Error deleting loan: ", error);
   }
 }
