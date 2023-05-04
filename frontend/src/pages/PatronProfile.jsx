@@ -1,10 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
 import { AuthContext } from "../utils/auth-context";
+import FineCard from '../components/Fine';
 
 const PatronProfile = () => {
   const auth = useContext(AuthContext);
   const [editMode, setEditMode] = useState(false);
+  const [fineAmount, setFineAmount] = useState(0);
+
 
   const [fields, setFields] = useState({
     userid: auth.userData.userid,
@@ -43,6 +46,7 @@ const PatronProfile = () => {
       image: auth.userData.userimage,
       membership: "Active",
     });
+    fetchUserFines();
   }, [auth.userData]);
 
   const handleChange = (e) => {
@@ -80,6 +84,30 @@ const PatronProfile = () => {
   } catch (error) {
     // Handle error
     console.error(`Error updating user: ${error.message}`);
+  }
+};
+
+const fetchUserFines = async () => {
+  console.log("fetchUserFines called");
+  try {
+    const patronId = auth.userData.userid;
+    const response = await fetch(`http://localhost:3005/api/loans/${patronId}/fines`, {
+      method: "GET",
+    });
+
+    if (response.ok) {
+      const loans = await response.json();
+      console.log("Fetched loans:", loans);
+      const totalFineAmount = loans.reduce((total, loan) => {
+        return loan.fine ? total + loan.fine.fineamt : total;
+      }, 0);
+      setFineAmount(totalFineAmount);
+      console.log("Total fine amount:", totalFineAmount);
+    } else {
+      console.error("Error retrieving user fines");
+    }
+  } catch (error) {
+    console.error(`Error retrieving user fines: ${error.message}`);
   }
 };
 
@@ -201,6 +229,9 @@ const PatronProfile = () => {
             </Col>
           </Row>
         </Card>
+        <div style={{ marginLeft: '2rem' }}>
+          <FineCard initialFineAmount={fineAmount} />
+      </div>
       </div>
     </Container>
   );
