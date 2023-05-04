@@ -183,6 +183,65 @@ const getLoans = async (req, res, next) => {
   }
 };
 
+const deleteLoan = async (req, res, next) => {
+  const loanId = req.params.loanId;
+  try {
+    const result = await db.Loan.destroy({
+      where: { loanid: loanId },
+    });
+
+    if (result) {
+      res.status(200).send(`Loan with loanid ${loanId} has been deleted.`);
+      console.log(`Loan with loanid ${loanId} has been deleted.`);
+    } else {
+      res.status(404).send(`Loan with loanid ${loanId} not found.`);
+      console.log(`Loan with loanid ${loanId} not found.`);
+    }
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+    console.error("Error deleting loan:", error);
+  }
+};
+
+const approveLoan = async (req, res, next) => {
+  const loanId = req.params.loanId;
+  try {
+    const loan = await db.Loan.findOne({ where: { loanid: loanId } });
+
+    if (loan) {
+      if (loan.statusid === 5) {
+        const book = await db.Book.findOne({ where: { bookid: loan.bookid } });
+
+        if (book) {
+          if (book.numcopies > 0) {
+            book.numcopies -= 1;
+            await book.save();
+
+            loan.statusid = 1;
+            await loan.save();
+            res
+              .status(200)
+              .send(
+                `Loan with loanid ${loanId} status has been changed to Loaned, and numcopies of bookid ${book.bookid} has been decreased by 1.`
+              );
+          } else {
+            res
+              .status(400)
+              .send(`No available copies for book with bookid ${book.bookid}.`);
+          }
+        } else {
+          res.status(404).send(`Book with bookid ${loan.bookid} not found.`);
+        }
+      } else {
+        res.status(404).send(`Loan with loanid ${loanId} not found.`);
+      }
+    }
+  } catch (error) {
+    console.error("Error updating loan status:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 module.exports = {
   getBooks,
   getBookById,
@@ -193,4 +252,6 @@ module.exports = {
   getUserById,
   getLoans,
   updateUserData,
+  deleteLoan,
+  approveLoan,
 };
