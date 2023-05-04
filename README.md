@@ -19,3 +19,6 @@ The library management system project is built using the following technologies:
 - Express.js: for building the web application framework
 - Node.js: for server-side scripting and database connectivity
 - PostgreSQL: for database management and storage
+
+[View the full documentation here](https://stupendous-suede-288.notion.site/LibraSphere-Documentation-4a1b05ca112d4be6849f5f23284aea29)
+
