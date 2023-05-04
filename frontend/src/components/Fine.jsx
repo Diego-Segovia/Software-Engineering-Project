@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, Row, Col, Alert } from 'react-bootstrap';
 
 const FineCard = ({ initialFineAmount }) => {
@@ -13,6 +13,11 @@ const FineCard = ({ initialFineAmount }) => {
   });
   
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setFineAmount(initialFineAmount);
+  }, [initialFineAmount]);
+
 
   const handleChange = (e) => {
     setFormFields({ ...formFields, [e.target.name]: e.target.value });
