@@ -269,7 +269,7 @@ try {
     res.status(404).json({ message: `No fines found for patron ID ${patronId}.` });
     console.log(`No fines found for patron ID ${patronId}.`);
   } else {
-    console.log("Received user data:", data)
+    //console.log("Received user data:", data)
     const loansJSON = data.map((loan) => loan.toJSON());
     res.status(200).json(loansJSON);
     console.log(`Loans with fines for patron ID ${patronId} sent!`);
