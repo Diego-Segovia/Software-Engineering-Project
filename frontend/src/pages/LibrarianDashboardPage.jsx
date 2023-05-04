@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Form, Col, Tabs, Tab } from "react-bootstrap";
+import { Button, Modal, Form, Tabs, Tab } from "react-bootstrap";
 import SearchBar from "../components/SearchBar";
 import TableComponent from "../components/TableComponent";
-import { fetchPatrons, getLoans } from "../utils/utils";
+import { fetchPatrons, getLoans, fetchBooks } from "../utils/utils";
 
 function LibrarianDashboardPage() {
   const [patrons, setPatrons] = useState();
   const [loans, setLoans] = useState();
   const [checkoutRequests, setCheckoutRequests] = useState();
-
-  useEffect(() => {
-    fetchPatrons(setPatrons);
-  }, [fetchPatrons]);
-
-  useEffect(() => {
-    getLoans(setLoans, setCheckoutRequests);
-  }, [getLoans]);
-
-  const onRefreshHandler = () => fetchPatrons(setPatrons);
+  const [books, setBooks] = useState();
 
   //Modals
   const [addShow, addSetShow] = useState(false);
@@ -28,8 +19,23 @@ function LibrarianDashboardPage() {
   const editHandleClose = () => editSetShow(false);
   const editHandleShow = () => editSetShow(true);
 
+  useEffect(() => {
+    fetchPatrons(setPatrons);
+  }, [fetchPatrons]);
+
+  useEffect(() => {
+    getLoans(setLoans, setCheckoutRequests);
+  }, [getLoans]);
+
+  useEffect(() => {
+    fetchBooks(setBooks, true);
+  }, [fetchBooks]);
+
+  const onPatronRefreshHandler = () => fetchPatrons(setPatrons);
+  const onLoanRefreshHandler = () => getLoans(setLoans, setCheckoutRequests);
+  const onCatalogRefreshHandler = () => fetchBooks(setBooks, true);
+
   //Book Section
-  const [book, setBook] = useState([]);
 
   const [addBook, setAddBook] = useState({
     ISBN: "",
@@ -67,86 +73,7 @@ function LibrarianDashboardPage() {
     setBooks(newBooks);
   };
 
-  //Test Data, Delete Later
-  const data = [
-    {
-      ISBN: 1,
-      Title: "Test Title",
-      Author: "Some Dude",
-      Publisher: "LMS",
-      Description: "Test Description",
-      Copies: 1,
-    },
-    {
-      ISBN: 2,
-      Title: "Test Title",
-      Author: "Some Dude",
-      Publisher: "LMS",
-      Description: "Test Description",
-      Copies: 1,
-    },
-    {
-      ISBN: 3,
-      Title: "Test Title",
-      Author: "Some Dude",
-      Publisher: "LMS",
-      Description: "Test Description",
-      Copies: 1,
-    },
-    {
-      ISBN: 4,
-      Title: "Test Title",
-      Author: "Some Dude",
-      Publisher: "LMS",
-      Description: "Test Description",
-      Copies: 1,
-    },
-    {
-      ISBN: 5,
-      Title: "Test Title",
-      Author: "Some Dude",
-      Publisher: "LMS",
-      Description: "Test Description",
-      Copies: 1,
-    },
-  ];
-
-  const books = [
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-    {
-      ISBN: "4",
-      bookTitle: "Some Title",
-      publisherID: 1,
-      genreID: 1,
-      numCopies: 1,
-      bookImage: "book.jpg",
-    },
-  ];
-
-  if (!patrons || !loans || !checkoutRequests) return <div></div>;
+  if (!patrons || !loans || !checkoutRequests || !books) return <div></div>;
 
   return (
     <div className="LibrarianDashboard">
@@ -156,13 +83,15 @@ function LibrarianDashboardPage() {
           {/* Catalog Section*/}
           <SearchBar />
           <div className="Options text-center">
-            <Button className="me-2" onClick={addHandleShow}>
+            <Button
+              className="me-2 btn-primary"
+              onClick={onCatalogRefreshHandler}
+            >
+              Refresh
+            </Button>
+            <Button className="me-2 btn-success" onClick={addHandleShow}>
               Add
             </Button>
-            <Button className="me-2" onClick={editHandleShow}>
-              Edit
-            </Button>
-            <Button className="me-2 btn-danger">Delete</Button>
           </div>
           {/* Add Book Modal */}
           <Modal show={addShow} onHide={addHandleClose}>
@@ -210,63 +139,19 @@ function LibrarianDashboardPage() {
               </Button>
             </Modal.Footer>
           </Modal>
-          {/* Edit Book Modal */}
-          <Modal show={editShow} onHide={editHandleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Edit Book</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Group className="mb-1">
-                  <Form.Label>ISBN</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Title</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Author</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Publisher</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Genre</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Image Link</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-                <Form.Group className="mb-1">
-                  <Form.Label>Number Of Copies</Form.Label>
-                  <Form.Control />
-                </Form.Group>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={editHandleClose}>
-                Close
-              </Button>
-              <Button variant="primary" onClick={editHandleClose}>
-                Save
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          <TableComponent data={books} />
+          <TableComponent data={books} isBook={true} />
         </Tab>
         <Tab eventKey="users" title="Users">
           {" "}
           {/* Users Section*/}
           <SearchBar />
           <div className="Options text-center">
-            <Button className="me-2 btn-primary" onClick={onRefreshHandler}>
+            <Button
+              className="me-2 btn-primary"
+              onClick={onPatronRefreshHandler}
+            >
               Refresh
             </Button>
-            <Button className="me-2 btn-danger">Delete</Button>
           </div>
           <TableComponent data={patrons} />
         </Tab>
@@ -274,19 +159,21 @@ function LibrarianDashboardPage() {
           {" "}
           {/* Requests Section*/}
           <SearchBar />
-          <div className="Options text-center">
-            <Button className="me-2 btn-danger">Delete</Button>
+          <div className="mt-4">
+            <TableComponent
+              data={checkoutRequests}
+              isRequest={true}
+              refreshLoans={onLoanRefreshHandler}
+            />
           </div>
-          <TableComponent data={checkoutRequests} isRequest={true} />
         </Tab>
         <Tab eventKey="loans" title="Loans">
           {" "}
           {/* Loans Section*/}
           <SearchBar />
-          <div className="Options text-center">
-            <Button className="me-2 btn-danger">Delete</Button>
+          <div className="mt-4">
+            <TableComponent data={loans} />
           </div>
-          <TableComponent data={loans} />
         </Tab>
       </Tabs>
     </div>
