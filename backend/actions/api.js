@@ -115,6 +115,43 @@ const loginUser = async (req, res, next) => {
     }
   };
 
+  const loanWithFineQuery = {
+    attributes: [
+      "loanid",
+      "patronid",
+      "fineid"
+    ],
+    include: [
+      {
+        model: db.Fine,
+        attributes: ["fineamt"],
+        through: { attributes: []},
+      }
+    ]
+  }
+  
+// Retrieve loans with fine information for a specific patron from the database
+const getLoansWithFinesByPatronId = async (req, res, next) => {
+  const patronId = req.params.patronId;
+  try {
+    const data = await db.Loan.findAll({
+      where: { patronid: patronId },
+      ...loanWithFineQuery,
+    });
+
+    if (data.length === 0) {
+      res.status(404).json({ message: `No fines found for patron ID ${patronId}.` });
+      console.log(`No fines found for patron ID ${patronId}.`);
+    } else {
+      const loansJSON = data.map((loan) => loan.toJSON());
+      res.status(200).json(loansJSON);
+      console.log(`Loans with fines for patron ID ${patronId} sent!`);
+    }
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred while fetching the data." });
+    console.error(`Error fetching loans with fines for patron ID ${patronId}: ${error}`);
+  }
+};
 
 const getUsers = async (req, res, next) => {
   try {
@@ -135,4 +172,5 @@ module.exports = {
   getUsers,
   getUserById,
   updateUserData,
+  getLoansWithFinesByPatronId,
 };
