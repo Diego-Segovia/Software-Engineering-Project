@@ -7,6 +7,7 @@ const PatronProfile = () => {
   const auth = useContext(AuthContext);
   const [editMode, setEditMode] = useState(false);
   const [fineAmount, setFineAmount] = useState(0);
+  const [fineCount, setFineCount] = useState(0);
 
 
   const [fields, setFields] = useState({
@@ -101,6 +102,10 @@ const fetchUserFines = async () => {
       const totalFineAmount = loans.reduce((total, loan) => {
         return loan.fine ? total + loan.fine.fineamt : total;
       }, 0);
+
+      const fineCount = loans.filter(loan => loan.fine).length;
+
+      setFineCount(fineCount);
       setFineAmount(totalFineAmount);
       console.log("Total fine amount:", totalFineAmount);
     } else {
@@ -133,6 +138,8 @@ const fetchUserFines = async () => {
                       width: "90%",
                       height: "100%",
                       border: "2px solid #ccc",
+                      maxHeight: "400px",
+                      maxWidth: "300px"
                     }}
                   />
                 </div>
@@ -230,7 +237,7 @@ const fetchUserFines = async () => {
           </Row>
         </Card>
         <div style={{ marginLeft: '2rem' }}>
-          <FineCard initialFineAmount={fineAmount} />
+          <FineCard initialFineAmount={fineAmount} initialFineCount={fineCount} />
       </div>
       </div>
     </Container>
