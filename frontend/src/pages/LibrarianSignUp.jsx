@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { createUser } from "../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 const LibrarianSignUp = () => {
-  const [formData, setFormData] = useState({
-    firstname: null,
-    lastname: null,
-    authusername: null,
-    authpassword: null,
-    userimage: "https://cdn-icons-png.flaticon.com/512/2994/2994959.png",
-    userrole: "Librarian",
-  });
+  const firstnameRef = useRef();
+  const lastnameRef = useRef();
+  const authusernameRef = useRef();
+  const authpasswordRef = useRef();
+
+  const navigateTo = useNavigate();
+
+  const [userimage] = useState(
+    "https://cdn-icons-png.flaticon.com/512/2994/2994959.png"
+  );
+  const [userrole] = useState("Librarian");
 
   // Hold visibility state for loan alert
   const [visible, setVisible] = useState(false);
@@ -20,22 +24,31 @@ const LibrarianSignUp = () => {
   // Dismiss alert
   const handleClose = () => setVisible(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formData = {
+      firstname: firstnameRef.current.value,
+      lastname: lastnameRef.current.value,
+      authusername: authusernameRef.current.value,
+      authpassword: authpasswordRef.current.value,
+      userimage,
+      userrole,
+    };
+
     //Create User in database
-    const wasUserCreated = await createUser();
+    const wasUserCreated = await createUser(formData);
 
     // Set the visibility state for alert to true
     setVisible(true);
 
     // Update the success state with the result of the loan request
     setWasSuccessful(wasUserCreated);
+    if (wasUserCreated) {
+      setTimeout(() => {
+        navigateTo("/");
+      }, 2000);
+    }
   };
 
   return (
@@ -52,8 +65,7 @@ const LibrarianSignUp = () => {
               className="form-control"
               id="firstname"
               name="firstname"
-              value={formData.firstname}
-              onChange={handleChange}
+              ref={firstnameRef}
               required
             />
           </div>
@@ -66,8 +78,7 @@ const LibrarianSignUp = () => {
               className="form-control"
               id="lastname"
               name="lastname"
-              value={formData.lastname}
-              onChange={handleChange}
+              ref={lastnameRef}
               required
             />
           </div>
@@ -80,8 +91,7 @@ const LibrarianSignUp = () => {
               className="form-control"
               id="authusername"
               name="authusername"
-              value={formData.authusername}
-              onChange={handleChange}
+              ref={authusernameRef}
               required
             />
           </div>
@@ -94,8 +104,7 @@ const LibrarianSignUp = () => {
               className="form-control"
               id="authpassword"
               name="authpassword"
-              value={formData.authpassword}
-              onChange={handleChange}
+              ref={authpasswordRef}
               required
             />
           </div>
