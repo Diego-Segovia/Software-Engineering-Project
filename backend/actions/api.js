@@ -98,32 +98,148 @@ const loginUser = async (req, res, next) => {
   }
 };
 
-  const updateUserData = async (req, res, next) => {
-    const userData = req.body;
-    console.log("Received user data:", userData);
-    try {
-      const user = await db.Users.findByPk(userData.userid);
-      if (!user) {
-        throw new Error(`User with ID ${userData.userid} not found`);
-      }
-      await user.update(userData);
-      await user.save();
-      console.log(`User with ID ${userData.userid} updated successfully`);
-      res.status(200).json(user);
-    } catch (error) {
-      console.error(`Error updating user: ${error.message}`);      
+const updateUserData = async (req, res, next) => {
+  const userData = req.body;
+  console.log("Received user data:", userData);
+  try {
+    const user = await db.Users.findByPk(userData.userid);
+    if (!user) {
+      throw new Error(`User with ID ${userData.userid} not found`);
     }
-  };
-
+    await user.update(userData);
+    await user.save();
+    console.log(`User with ID ${userData.userid} updated successfully`);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(`Error updating user: ${error.message}`);
+  }
+};
 
 const getUsers = async (req, res, next) => {
   try {
-  } catch (error) {}
+    const libraryPatrons = await db.Users.findAll({
+      where: {
+        userrole: "Library_Patron",
+      },
+    });
+
+    if (!libraryPatrons) {
+      res.status(404).json({ error: "No patrons found!" });
+      console.log("No patrons found!");
+      return;
+    }
+
+    res.status(200).json(libraryPatrons);
+    console.log("All users returned.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching all patrons.");
+    console.log(error);
+  }
 };
 
 const getUserById = async (req, res, next) => {
   try {
   } catch (error) {}
+};
+
+const getLoans = async (req, res, next) => {
+  try {
+    const allLoans = await db.Loan.findAll({
+      attributes: ["loanid", "loandate", "returndate"],
+      include: [
+        {
+          model: db.Book,
+          attributes: ["booktitle", "isbn", "numcopies"],
+        },
+        {
+          model: db.Users,
+          attributes: ["firstname", "lastname", "authusername"],
+        },
+        {
+          model: db.LoanStatus,
+          attributes: ["statusdesc"],
+        },
+        {
+          model: db.Fine,
+          attributes: ["finedesc", "fineamt"],
+          required: false, // FULL OUTER JOIN
+        },
+      ],
+    });
+
+    if (!allLoans) {
+      res.status(404).json({ error: "No loans found!" });
+      console.log("No loans found!");
+      return;
+    }
+
+    res.status(200).json(allLoans);
+    console.log("All loans sent.");
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Internal server error" });
+    console.log("Error occurred while fetching all loans.");
+    console.log(error);
+  }
+};
+
+const deleteLoan = async (req, res, next) => {
+  const loanId = req.params.loanId;
+  try {
+    const result = await db.Loan.destroy({
+      where: { loanid: loanId },
+    });
+
+    if (result) {
+      res.status(200).send(`Loan with loanid ${loanId} has been deleted.`);
+      console.log(`Loan with loanid ${loanId} has been deleted.`);
+    } else {
+      res.status(404).send(`Loan with loanid ${loanId} not found.`);
+      console.log(`Loan with loanid ${loanId} not found.`);
+    }
+  } catch (error) {
+    res.status(500).send("Internal Server Error");
+    console.error("Error deleting loan:", error);
+  }
+};
+
+const approveLoan = async (req, res, next) => {
+  const loanId = req.params.loanId;
+  try {
+    const loan = await db.Loan.findOne({ where: { loanid: loanId } });
+
+    if (loan) {
+      if (loan.statusid === 5) {
+        const book = await db.Book.findOne({ where: { bookid: loan.bookid } });
+
+        if (book) {
+          if (book.numcopies > 0) {
+            book.numcopies -= 1;
+            await book.save();
+
+            loan.statusid = 1;
+            await loan.save();
+            res
+              .status(200)
+              .send(
+                `Loan with loanid ${loanId} status has been changed to Loaned, and numcopies of bookid ${book.bookid} has been decreased by 1.`
+              );
+          } else {
+            res
+              .status(400)
+              .send(`No available copies for book with bookid ${book.bookid}.`);
+          }
+        } else {
+          res.status(404).send(`Book with bookid ${loan.bookid} not found.`);
+        }
+      } else {
+        res.status(404).send(`Loan with loanid ${loanId} not found.`);
+      }
+    }
+  } catch (error) {
+    console.error("Error updating loan status:", error);
+    res.status(500).send("Internal Server Error");
+  }
 };
 
 module.exports = {
@@ -134,5 +250,8 @@ module.exports = {
   loginUser,
   getUsers,
   getUserById,
+  getLoans,
   updateUserData,
+  deleteLoan,
+  approveLoan,
 };

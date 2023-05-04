@@ -40,7 +40,7 @@ function DetailBookPage() {
     // Create a loan request data object
     const data = {
       bookid: book.bookid,
-      patronid: 1,
+      patronid: auth.userData.userid,
       librarianid: 4,
       loandate: currentDate.toISOString().slice(0, 10),
       returndate: oneWeekFromNow.toISOString().slice(0, 10),
@@ -66,7 +66,7 @@ function DetailBookPage() {
   if (!book) return <div></div>;
 
   return (
-    <div className="container mx-auto m-4">
+    <div className="container mx-auto m-5">
       <div className="card shadow" style={{ backgroundColor: "#E8DFDA" }}>
         <div className="row">
           <div className="col-lg-3 text-center">
