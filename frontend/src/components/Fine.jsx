@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, Row, Col, Alert } from 'react-bootstrap';
 
-const FineCard = ({ initialFineAmount }) => {
+const FineCard = ({ initialFineAmount, initialFineCount }) => {
   console.log("initialFineAmount:", initialFineAmount);
   const [fineAmount, setFineAmount] = useState(initialFineAmount);
+  const [fineCount, setFineCount] = useState(initialFineCount);
   const [showForm, setShowForm] = useState(false);
   const [formFields, setFormFields] = useState({
     nameOnCard: '',
@@ -16,7 +17,8 @@ const FineCard = ({ initialFineAmount }) => {
 
   useEffect(() => {
     setFineAmount(initialFineAmount);
-  }, [initialFineAmount]);
+    setFineCount(initialFineCount);
+  }, [initialFineAmount, initialFineCount]);
 
 
   const handleChange = (e) => {
@@ -33,6 +35,7 @@ const FineCard = ({ initialFineAmount }) => {
     // Reset fields and fine amount
     setError(null);
     setFineAmount(0);
+    setFineCount(0);
     setFormFields({
       nameOnCard: '',
       cardNumber: '',
@@ -56,9 +59,14 @@ const FineCard = ({ initialFineAmount }) => {
   return (
     <Card className="mx-3" style={{ backgroundColor: '#f0f0f0', width: '100%' }}>
       <Card.Body>
-        <Card.Title>Fine</Card.Title>
+        <Card.Title>Fines</Card.Title>
         <Card.Text>
-          Amount: <span className="border border-dark px-2">${fineAmount.toFixed(2)}</span>
+            <span className="me-3">
+                Fine Count: <span className="border border-dark px-2">{fineCount}</span>
+            </span>
+            <span>
+                Amount: <span className="border border-dark px-2">${fineAmount.toFixed(2)}</span>
+            </span>
         </Card.Text>
         {fineAmount > 0 && (
           <>
