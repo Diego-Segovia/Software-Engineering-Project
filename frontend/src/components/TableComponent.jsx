@@ -105,7 +105,7 @@ function TableComponent({ data, isRequest, isBook, refreshLoans }) {
         </div>
       ) : (
         <div className="mx-4 mt-3 mb-4 card">
-          <p className="text-center">No data available.</p>
+          <p className="text-center mt-3">No data available.</p>
         </div>
       )}
     </>
