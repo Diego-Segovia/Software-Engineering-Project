@@ -19,6 +19,7 @@ const Loan = require("./Loan")(sequelize, DataTypes);
 const Users = require("./Users")(sequelize, DataTypes);
 const Fine = require("./Fine")(sequelize, DataTypes);
 const LoanStatus = require("./LoanStatus")(sequelize, DataTypes);
+const Librarian = require("./Librarian")(sequelize, DataTypes);
 
 // Author Book many-to-many relationship
 Book.belongsToMany(Author, { through: "author_book", foreignKey: "bookid" });
@@ -42,6 +43,8 @@ Loan.belongsTo(Fine, { foreignKey: "fineid" });
 Loan.belongsTo(LoanStatus, { foreignKey: "statusid" });
 LoanStatus.hasMany(Loan, { foreignKey: "statusid" });
 
+Librarian.belongsTo(Users, { foreignKey: "librarianid" });
+
 const db = {
   sequelize,
   Author,
@@ -52,6 +55,7 @@ const db = {
   Users,
   LoanStatus,
   Fine,
+  Librarian,
 };
 
 module.exports = db;
