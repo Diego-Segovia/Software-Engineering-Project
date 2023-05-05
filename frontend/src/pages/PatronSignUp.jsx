@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { createUser } from "../utils/utils";
+import { createUser, validateSignUpData } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 
 const PatronSignUp = () => {
@@ -21,6 +21,8 @@ const PatronSignUp = () => {
   // Hold success state for loan alert
   const [wasSuccessful, setWasSuccessful] = useState(false);
 
+  const [errorMessage, setErrorMessage] = useState("Try again!");
+
   // Dismiss alert
   const handleClose = () => setVisible(false);
 
@@ -35,6 +37,14 @@ const PatronSignUp = () => {
       userimage,
       userrole,
     };
+
+    const isValidData = validateSignUpData(formData, setErrorMessage);
+
+    if (!isValidData) {
+      setVisible(true);
+      setWasSuccessful(false);
+      return;
+    }
 
     //Create User in database
     const wasUserCreated = await createUser(formData);
@@ -125,7 +135,7 @@ const PatronSignUp = () => {
                 } alert-dismissible fade show`}
                 role="alert"
               >
-                {wasSuccessful ? "User Created" : "Try Again!"}
+                {wasSuccessful ? "User Created" : errorMessage}
                 <button
                   type="button"
                   className="btn-close"
