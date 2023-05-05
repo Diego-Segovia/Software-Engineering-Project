@@ -1,0 +1,1071 @@
+Author:     Favour Adekoya
+Commit:     Merge pull request #32 from Diego-Segovia/feature/Search
+CommitDate: Fri, May 05, 2023
+
+Author:     Carlos Martinez
+Commit:     Added Search Functionality
+CommitDate: Fri, May 05, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix margin top for no data card
+CommitDate: Fri, May 05, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix error for table data being empty
+CommitDate: Fri, May 05, 2023
+
+Author:     Diego-Segovia
+Commit:     Handle staff id validation for librarian login
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Librarian database model
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Add login info validation
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Add sign up data validation
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Add sign up data validation function
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #30 from Diego-Segovia/feature/component/newFine
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into feature/component/newFine
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement fine count to display on fine card
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Inmplement fine count variable
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix patron user creation
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix librarian user creation
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove profile for librarian
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #29 from Diego-Segovia/feature/component/newFine
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Remove unnecessary console log
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement useEffect to update initialFineAmount
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement function to call API for fine data
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Create route for loans with fine data
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Create API endpoint for loans with fine data
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Import FineCard to patron profile
+CommitDate: Thu, May 04, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Create fine component
+CommitDate: Thu, May 04, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #28 from Diego-Segovia/feature/Loans
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add routes to delete loan & to approve loan
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add functions to get all loans & approve/deny loans
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add functions to retrieve book loans & patrons
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add data refresh functionality & approval/denial of book loan requests
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add data refresh functionality & approval/denial of book loan requests
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Add book edit modal component
+CommitDate: Wed, May 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Main branch changes
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to get loans in table format
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Get data from database
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add authentication context
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add approve and deny buttons
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add route to get all loans
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Fine, LoanStatus, Loan, and Users models
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to get loans
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #27 from Diego-Segovia/feature/page/PatronProfile
+CommitDate: Tue, May 02, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #26 from Diego-Segovia/db/definitions
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Removed unneeded comments.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Cleaned API endpoint formatting.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement user information updating.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Add updateUserData route.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Add updateUserData API endpoint.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Add cancel button, began handling user save data.
+CommitDate: Tue, May 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix login model alerting user information
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix unable to edit form after edit button was clicked
+CommitDate: Mon, May 01, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Add clarification in comments.
+CommitDate: Mon, May 01, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement user role triggers in database.
+CommitDate: Mon, May 01, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #25 from Diego-Segovia/feature/Login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into feature/Login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add empty & incorrect login data validation
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove server side request error from loginUser
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #24 from Diego-Segovia/feature/Login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add users routes
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor routes to simplier format
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to handle user login request
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add authentication context to application
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to login user
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add authentication context for app wide state
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Implement logout functionality
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add user information after login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix label element using reserved 'for' keyword
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Change checkout button avaliability based on user login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Handle librarian & patron login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Add conditional navbar items based on user login
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix file spacing
+CommitDate: Mon, May 01, 2023
+
+Author:     Diego-Segovia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into feature/Login
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add logout functionality
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #23 from Diego-Segovia/feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Add notification option selection.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #22 from Diego-Segovia/feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Center align form.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #21 from Diego-Segovia/feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Fix the refresh issue on settings page.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement patron profile mock page.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Remove font awesome dependencies.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #20 from Diego-Segovia/feature/page/Settings
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Implement settings page.
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #19 from Diego-Segovia/backend/API
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into backend/API
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix librarian dashboard not showing
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #17 from Diego-Segovia/db/definitions
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #18 from Diego-Segovia/backend/API
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add user routes to handle login & sign up
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add autoincrement to primary key and add userrole attribute
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Users model
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to handle user sign up
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add patron & librarian sign up pages and routes
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to send user creation request to backend
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add sign up pgae for patrons
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Add sign up page for librarians
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix Navbar brand causing page reload
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor to provide distinction between librarian & patron login
+CommitDate: Sun, Apr 30, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Update data seed to include fine and loan data.
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add users routes
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor routes to have a reference to controller functions
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor functions to include next middleware Express function
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #16 from Diego-Segovia/backend/API
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Change API endpoint to include /api route
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add routes to handle loans
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add loan model & turn off query logging
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add autoincrement to loan model
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add loan creation in the database
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add checkout btn functionality to send book checkout request
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to handle book checkout requests
+CommitDate: Sat, Apr 29, 2023
+
+Author:     Favour Adekoya
+Commit:     Merge pull request #15 from Diego-Segovia/db/definitions
+CommitDate: Fri, Apr 28, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project into db/definitions
+CommitDate: Fri, Apr 28, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Update data seed to populate remaining tables.
+CommitDate: Fri, Apr 28, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Thu, Apr 27, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove routes folder from frontend
+CommitDate: Thu, Apr 27, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix spacing for readability
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #13 from Diego-Segovia/LibrarianDashboard
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Carlos Martinez
+Commit:     Updated with Main Branch
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Carlos Martinez
+Commit:     Merge branch 'main' into LibrarianDashboard
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Carlos Martinez
+Commit:     Added Librarian Dashboard
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #12 from Diego-Segovia/feature/page/BookCheckout
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Diego-Segovia
+Commit:     Add icons to navbar
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Diego-Segovia
+Commit:     Change book info component style to include icons, publisher info, and genre
+CommitDate: Wed, Apr 26, 2023
+
+Author:     Diego-Segovia
+Commit:     Change favicon & page title
+CommitDate: Mon, Apr 24, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #11 from Diego-Segovia/db/definitions
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Update data seed to include synopsis.
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Update data seed to include synopsis.
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #10 from Diego-Segovia/feature/Search
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix arrow assets directories
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Add icons to home and catalog links
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Delete unused components and restructure components folder
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Change components directories
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Delete unused components and restructure components folder
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Fix single book information not rendering
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Add hasFilter prop to true for search bar component
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Add sign in icon to login link
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Add icons to navbar links
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego-Segovia
+Commit:     Add filter to search bar
+CommitDate: Sun, Apr 23, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #9 from Diego-Segovia/backend/API
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add book page routing based on book id
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to get book based on id from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Create a route for a book based on the book's id & add the book page component
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to get book data using book id
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove filter page section
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add a book detail page
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Make component clickable and redirect to book's specific page
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Change the catalog page URL to /books
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Change synopsis data type to TEXT to handle long strings
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #8 from Diego-Segovia/backend/API
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add genre & publisher information for book
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add genre and publisher models relationship to book model
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define user model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define publisher model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define patron model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define membership model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define loan_status model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define loan model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define librarian model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define genre model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Define fine model from database
+CommitDate: Sat, Apr 22, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Cross-Origin Resource Sharing (CORS) to allow external communication to API
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Change search bar to be mobile responsive
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Make changes to component to be mobile responsive
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Add margins to reformat book carousel
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Change book image attribute to properly interact with API
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Page fetch books from API to display
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Page fetch books from API to display
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Add utility function to fetch books from API
+CommitDate: Fri, Apr 21, 2023
+
+Author:     Diego-Segovia
+Commit:     Implement new Book and Author models
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor getBooks function to get book and associated author(s)
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add getBooks function to retrieve books
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add author model for author table in databse
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Refactor to include associations between models
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #7 from Diego-Segovia/backend/DatabaseConnection
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Delete api files from frontend
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add book API route and start database connection
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add API endpoint to get books from database
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Set up databse connection and initialize database models
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add model for book database table
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add model for author_book database table
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Export all API functions
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add function to get books from database
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add body-parser dependency
+CommitDate: Wed, Apr 19, 2023
+
+Author:     Diego-Segovia
+Commit:     Add nodemon start script
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Add nodemon as dev dependency
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #6 from Diego-Segovia/db/definitions
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     modified  SQL table definitions
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Humberto
+Commit:     Merge pull request #5 from Diego-Segovia/feature/page/SearchCatalog
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Add dependecies for Font Awsome icons
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Add React router for multi-page support
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Create catalog page
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Create homepage
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Create Root page
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Create search bar component
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Add home and catalog links
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Change anchor tag to Link component from react-dom
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Change width of card
+CommitDate: Tue, Apr 18, 2023
+
+Author:     Diego-Segovia
+Commit:     Add search bar
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     Merge pull request #4 from Diego-Segovia/feature/LibraryJumbotron
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Add jumbotron component
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Create a jumbotron component for the homepage
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove database models from frontend folder
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Move database models to backend folder
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Change number of books from 7 to 5 in carousel to fix spacing issue
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove default page styles
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego Segovia
+Commit:     Merge pull request #3 from Diego-Segovia/feature/DetailedBook
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Add detailed book component to homepage
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Diego-Segovia
+Commit:     Create a component to provide detialed book information
+CommitDate: Mon, Apr 17, 2023
+
+Author:     Humberto
+Commit:     Merge pull request #2 from Diego-Segovia/feature/BookSlider
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add book data prop
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add book data prop
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Change to make all books have the same height
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add dummy book data
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add react-slick dependency for book carousel component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Change application title
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add NavBar & BookSection components to homepage
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Remove default css file
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add navigation arrow imgages for book carousel component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add navigation bar component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Book Section component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add styling to Book Carousel component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Book Carousel component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add login modal component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add UI folder general components
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add Book Component
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Add react-slick & react-icons dependencies for book slider
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete vite.config.js
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete server.js
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete package.json
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete package-lock.json
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete index.html
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete src directory
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego Segovia
+Commit:     Delete public directory
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Move backend logic to seperate folder
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Diego-Segovia
+Commit:     Move frontend logic to seperate folder
+CommitDate: Sun, Apr 16, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     Kenny 3x Card Carousel  Component with style
+CommitDate: Tue, Apr 04, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     Kenny  Multiple 4x card  carousel  that displays the books
+CommitDate: Tue, Apr 04, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     kenny The Navigation Bar component, used across all pages
+CommitDate: Tue, Apr 04, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     kenny  packages needed  to install for react-router-dom which is used to route pages in react
+CommitDate: Tue, Apr 04, 2023
+
+Author:     Kennedi Serrano Acosta
+Commit:     kennys Login Component
+CommitDate: Tue, Apr 04, 2023
+
+Author:     Diego-Segovia
+Commit:     Added a folder structure to project
+CommitDate: Mon, Apr 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Added essential dependencies to project
+CommitDate: Mon, Apr 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Added untracking to .env files
+CommitDate: Mon, Apr 03, 2023
+
+Author:     Diego-Segovia
+Commit:     Added a file to hold server logic
+CommitDate: Mon, Apr 03, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     created database folder
+CommitDate: Sun, Apr 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     updated seed data.
+CommitDate: Sun, Apr 02, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Updated DB definitions and dataseeding queries.
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Integrated user and book images.
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Made changes to DB and dataseed for normalization.
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Changed file names
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Changed file name.
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Added file to populate DB with 50 unique books.
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Changed file name
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Merge branch 'main' of https://github.com/Diego-Segovia/Software-Engineering-Project
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Added SQL queries for DB
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto
+Commit:     Merge pull request #1 from Diego-Segovia/master
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Humberto Sanchez Heredia
+Commit:     Added test DB
+CommitDate: Fri, Mar 31, 2023
+
+Author:     Diego-Segovia
+Commit:     Updated README file to explain the project
+CommitDate: Fri, Mar 24, 2023
+
+Author:     Diego-Segovia
+Commit:     Initial project React project setup
+CommitDate: Fri, Mar 24, 2023
+
+Author:     Diego Segovia
+Commit:     Update README.md
+CommitDate: Wed, Feb 08, 2023
+
+Author:     Humberto
+Commit:     Update README.md
+CommitDate: Wed, Feb 08, 2023
+
+Author:     Diego Segovia
+Commit:     Testing Discord Bot
+CommitDate: Wed, Feb 01, 2023
+
+Author:     Diego Segovia
+Commit:     Create README.md
+CommitDate: Wed, Feb 01, 2023
+
+Author:     Diego Segovia
+Commit:     Initial commit
+CommitDate: Wed, Feb 01, 2023
