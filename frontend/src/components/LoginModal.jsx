@@ -10,12 +10,23 @@ const LoginModal = () => {
   const auth = useContext(AuthContext);
   const [show, setShow] = useState(false);
 
+  // Hold visibility state for loan alert
+  const [visible, setVisible] = useState(false);
+
+  // Hold success state for loan alert
+  const [wasSuccessful, setWasSuccessful] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("Try again!");
+
   const usernameRef = useRef();
   const passwordRef = useRef();
   const staffIdRef = useRef();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  // Dismiss alert
+  const handleModalClose = () => setVisible(false);
 
   const handleLibrarianLogin = () => auth.setAsLibrarian(true);
   const handlePatronLogin = () => auth.setAsLibrarian(false);
@@ -27,16 +38,36 @@ const LoginModal = () => {
       password: passwordRef.current.value,
     };
 
+    if (data.username.length == 0) {
+      setErrorMessage("Username Needed!");
+      setVisible(true);
+      setWasSuccessful(false);
+      return false;
+    }
+
+    if (data.password.length == 0) {
+      setErrorMessage("Password must be provided!");
+      setVisible(true);
+      setWasSuccessful(false);
+      return false;
+    }
+
     try {
       const responseData = await loginUser(data);
 
       if (responseData.error) {
-        alert(JSON.stringify(responseData.error));
+        setErrorMessage(
+          JSON.stringify(responseData.error).replace(/["']/g, "")
+        );
+        setVisible(true);
+        setWasSuccessful(false);
         throw new Error("Login failed");
       }
 
       if (responseData.userrole == "Librarian") {
-        alert("Only for Patron Login");
+        setErrorMessage("Only for Patron Login!");
+        setVisible(true);
+        setWasSuccessful(false);
         throw new Error("Login failed");
       }
 
@@ -52,21 +83,50 @@ const LoginModal = () => {
 
   const onLibrarianLogin = async (e) => {
     e.preventDefault();
+
     const data = {
       username: usernameRef.current.value,
       password: passwordRef.current.value,
+      staffId: staffIdRef.current.value,
     };
+
+    if (data.staffId.length == 0) {
+      setErrorMessage("Staff Id Needed!");
+      setVisible(true);
+      setWasSuccessful(false);
+      return false;
+    }
+
+    if (data.username.length == 0) {
+      setErrorMessage("Username Needed!");
+      setVisible(true);
+      setWasSuccessful(false);
+      return false;
+    }
+
+    if (data.password.length == 0) {
+      setErrorMessage("Password must be provided!");
+      setVisible(true);
+      setWasSuccessful(false);
+      return false;
+    }
 
     try {
       const responseData = await loginUser(data);
 
       if (responseData.error) {
-        alert(JSON.stringify(responseData.error));
+        setErrorMessage(
+          JSON.stringify(responseData.error).replace(/["']/g, "")
+        );
+        setVisible(true);
+        setWasSuccessful(false);
         throw new Error("Login failed");
       }
 
       if (responseData.userrole == "Library_Patron") {
-        alert("Only for Librarian login!");
+        setErrorMessage("Only for Librarian login!");
+        setVisible(true);
+        setWasSuccessful(false);
         throw new Error("Login failed");
       }
 
@@ -195,6 +255,24 @@ const LoginModal = () => {
             )}
           </Col>
         </Modal.Footer>
+        {visible && (
+          <div class="d-flex justify-content-center align-items-center center-wrapper">
+            <div
+              className={`alert ${
+                wasSuccessful ? "alert-success" : "alert-danger"
+              } alert-dismissible fade show`}
+              role="alert"
+            >
+              {wasSuccessful ? "User Created" : errorMessage}
+              <button
+                type="button"
+                className="btn-close"
+                aria-label="Close"
+                onClick={handleModalClose}
+              ></button>
+            </div>
+          </div>
+        )}
       </Modal>
     </>
   );
