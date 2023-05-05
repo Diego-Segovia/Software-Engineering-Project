@@ -232,3 +232,34 @@ export async function approveLoan(loanID) {
     console.log("Error deleting loan: ", error);
   }
 }
+
+export function validateSignUpData(data, setErrorMessage) {
+  if (data.firstname.length == 0) {
+    setErrorMessage("First Name Required!");
+    return false;
+  }
+
+  if (data.lastname.length == 0) {
+    setErrorMessage("Last Name Required!");
+    return false;
+  }
+
+  if (data.authusername.length == 0) {
+    setErrorMessage("Username Required!");
+    return false;
+  }
+
+  // Check if the password length is at least 8 characters
+  if (data.authpassword.length == 0) {
+    setErrorMessage("Password Required!");
+    return false;
+  }
+
+  // Check if the password length is at least 8 characters
+  if (data.authpassword.length < 8) {
+    setErrorMessage("Password must be 8 characters!");
+    return false;
+  }
+
+  return true;
+}
